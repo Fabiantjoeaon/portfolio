@@ -8,12 +8,11 @@ import Header from '../components/Header';
 import renderScene from './scene';
 
 const Container = styled.div`
-    position: relative;
     z-index: -1;
 `;
 
 const Content = styled.div`
-    z-index: 0;
+    z-index: 1;
     position: relative;
 `;
 
@@ -31,6 +30,11 @@ const Scene = styled.div`
         width: 100%:
         height: 100%;
     }
+`;
+
+const ContentInner = styled.div`
+    width: 1200px;
+    margin: 0 auto;
 `;
 
 injectGlobal`
@@ -98,7 +102,7 @@ class TemplateWrapper extends Component {
                 <Scene ref={root => (this.root = root)} />
                 <Content>
                     <Header />
-                    <div
+                    <ContentInner
                         style={{
                             margin: '0 auto',
                             maxWidth: 960,
@@ -107,7 +111,7 @@ class TemplateWrapper extends Component {
                         }}
                     >
                         {children()}
-                    </div>
+                    </ContentInner>
                 </Content>
             </Container>
         );

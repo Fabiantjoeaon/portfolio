@@ -7,11 +7,12 @@ const Navigation = styled.header`
     color: #fff;
     display: flex;
     justify-content: flex-start;
-    margin-left: 40px;
-
+    margin-bottom: 50px;
     a {
         align-self: center;
         text-decoration: none;
+        cursor: pointer;
+        margin-left: 40px;
     }
 
     a:link,
@@ -25,7 +26,9 @@ const Navigation = styled.header`
 
 const Header = () => (
     <Navigation>
-        <a href="/">Fabian Tjoe-A-On</a>
+        <Link to="/">
+            <span>Fabian Tjoe-A-On</span>
+        </Link>
     </Navigation>
 );
 
