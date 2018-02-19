@@ -2,15 +2,17 @@ import * as THREE from 'three';
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
+let mouseX;
+let mouseY;
 
 const gridVerticesArray = [];
 const gridAngles = [];
 
-const gridSpeed = 0.02;
+const gridSpeed = 0.01;
 const gridRange = 400;
 
-const sceneColor = new THREE.Color('#fff');
-const planeColor = 0x58929a;
+const sceneColor = new THREE.Color('#3a3a3a');
+const planeColor = 0xffa969;
 
 const renderScene = domNode => {
     console.log(domNode);
@@ -44,21 +46,17 @@ const renderScene = domNode => {
     const grid = new THREE.Mesh(geometry, material);
     scene.add(grid);
 
-    window.addEventListener('resize', onWindowResize, false);
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    const onWindowResize = () => {
+    window.addEventListener('resize', () => {
         windowHalfX = window.innerWidth / 2;
         windowHalfY = window.innerHeight / 2;
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    const onDocumentMouseMove = event => {
+    });
+    document.addEventListener('mousemove', event => {
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
-    };
+    });
 
     const render = () => {
         grid.geometry.verticesNeedUpdate = true;

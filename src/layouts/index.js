@@ -7,7 +7,31 @@ import Helmet from 'react-helmet';
 import Header from '../components/Header';
 import renderScene from './scene';
 
-const Scene = styled.div``;
+const Container = styled.div`
+    position: relative;
+    z-index: -1;
+`;
+
+const Content = styled.div`
+    z-index: 0;
+    position: relative;
+`;
+
+const Scene = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    max-width: 100vw;
+
+    canvas {
+        width: 100%:
+        height: 100%;
+    }
+`;
 
 injectGlobal`
     tt,
@@ -57,27 +81,29 @@ class TemplateWrapper extends Component {
     render() {
         const { children } = this.props;
         return (
-            <div>
+            <Container>
                 <Helmet
-                    title="Gatsby Default Starter"
+                    title="Fabian Tjoe-A-On's Portfolio"
                     meta={[
                         { name: 'description', content: 'Sample' },
                         { name: 'keywords', content: 'sample, something' }
                     ]}
                 />
-                <Header />
-                <div
-                    style={{
-                        margin: '0 auto',
-                        maxWidth: 960,
-                        padding: '0px 1.0875rem 1.45rem',
-                        paddingTop: 0
-                    }}
-                >
-                    {children()}
-                </div>
-                <div ref={root => (this.root = root)} />
-            </div>
+                <Scene ref={root => (this.root = root)} />
+                <Content>
+                    <Header />
+                    <div
+                        style={{
+                            margin: '0 auto',
+                            maxWidth: 960,
+                            padding: '0px 1.0875rem 1.45rem',
+                            paddingTop: 0
+                        }}
+                    >
+                        {children()}
+                    </div>
+                </Content>
+            </Container>
         );
     }
 }
