@@ -1,15 +1,18 @@
 const getTransitionStyles = timeout => {
     return {
         entering: {
-            opacity: 0
+            opacity: 0,
+            transform: `translate3d(0px, 400px, 0px)`
         },
         entered: {
-            transition: `opacity ${timeout}ms ease-in-out`,
-            opacity: 1
+            transition: `all ${timeout}ms cubic-bezier(.14,1,.34,1)`,
+            opacity: 1,
+            transform: `translate3d(0px, 0px, 0px)`
         },
         exiting: {
-            transition: `opacity ${timeout}ms ease-in-out`,
-            opacity: 0
+            transition: `all ${timeout}ms cubic-bezier(.14,1,.34,1)`,
+            opacity: 0,
+            transform: `translate3d(0px, 400px, 0px)`
         }
     };
 };

@@ -40,9 +40,7 @@ const ContentInner = styled.div`
 injectGlobal`
     * {
         color: #fff;
-        
         -webkit-font-smoothing: antialiased;
-    
     }
     tt,
     code {

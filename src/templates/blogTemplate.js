@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Template({ data }) {
+export default function Template({ data, transition }) {
     const { markdownRemark } = data;
     const { frontmatter, html } = markdownRemark;
     return (
-        <div className="blog-post-container">
+        <div
+            className="blog-post-container"
+            style={transition && transition.style}
+        >
             <div className="blog-post">
                 <h1>{frontmatter.title}</h1>
                 <h2>{frontmatter.date}</h2>
