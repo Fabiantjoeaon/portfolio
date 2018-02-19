@@ -34,6 +34,12 @@ const Scene = styled.div`
 `;
 
 injectGlobal`
+    * {
+        color: #fff;
+        
+        -webkit-font-smoothing: antialiased;
+    
+    }
     tt,
     code {
         background-color: hsla(0, 0%, 0%, 0.04);

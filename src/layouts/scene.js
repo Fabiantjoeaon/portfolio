@@ -15,7 +15,6 @@ const sceneColor = new THREE.Color('#3a3a3a');
 const planeColor = 0xffa969;
 
 const renderScene = domNode => {
-    console.log(domNode);
     const camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,

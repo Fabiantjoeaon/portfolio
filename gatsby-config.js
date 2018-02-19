@@ -9,6 +9,20 @@ module.exports = {
             options: {
                 pathToConfigModule: `src/utils/typography.js`
             }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/pages/posts`,
+                name: 'markdown-pages'
+            }
+        },
+        `gatsby-transformer-remark`,
+        {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [`Asul`, `Chivo`]
+            }
         }
     ]
 };
