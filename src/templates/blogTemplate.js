@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
 const AnimatedContent = styled(Content)`
     transition: all 0.3s ease-out;
-    transition-delay: 1.2s;
+    transition-delay: 1.4s;
     opacity: 0;
     &.entering {
         opacity: 0;
@@ -22,6 +22,11 @@ const AnimatedContent = styled(Content)`
     &.exiting {
         opacity: 0;
         transition-delay: 0s;
+    }
+
+    video {
+        width: 100% !important;
+        height: auto !important;
     }
 `;
 
@@ -41,8 +46,10 @@ export default function Template({ data, transition, ...props }) {
                     </AnimatedTitle>
                     <AnimatedContent
                         className={`blog-post-content ${transition.status}`}
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                    >
+                        <div dangerouslySetInnerHTML={{ __html: html }} />
+                        <p>Follow me on twitter!</p>
+                    </AnimatedContent>
                 </div>
             </Wrapper>
         );

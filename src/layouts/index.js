@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import Header from '../components/Header';
 import renderScene from './scene';
 import 'prism-themes/themes/prism-duotone-dark.css';
+import '../../node_modules/font-awesome/css/font-awesome.css';
 
 const Container = styled.div`
     z-index: -1;
@@ -80,6 +81,12 @@ injectGlobal`
     }
     .language-javascript {
         border: 1px solid #ebaa73;
+    }
+    code[class*="language-"], pre[class*="language-"] {
+        background: rgba(42, 39, 52, 0.6) !important;
+    }
+    .comment {
+        color: #909090 !important;
     }
 `;
 

@@ -58,12 +58,12 @@ const Header = ({ isHome }) => (
         <Icons>
             <a target="_blank" href="https://github.com/fabiantjoeaon">
                 <IconWrapper>
-                    <i className="fab fa-github" />
+                    <i className="fa fa-github" />
                 </IconWrapper>
             </a>
             <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
                 <IconWrapper>
-                    <i className="fab fa-twitter" />
+                    <i className="fa fa-twitter" />
                 </IconWrapper>
             </a>
             <a
@@ -71,12 +71,12 @@ const Header = ({ isHome }) => (
                 href="https://www.linkedin.com/in/fabiantjoeaon/"
             >
                 <IconWrapper>
-                    <i className="fab fa-linkedin-in" />
+                    <i className="fa fa-linkedin" />
                 </IconWrapper>
             </a>
             <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
                 <IconWrapper>
-                    <i className="fas fa-at" />
+                    <i className="fa fa-at" />
                 </IconWrapper>
             </a>
         </Icons>
