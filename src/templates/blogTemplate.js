@@ -1,23 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import AnimatedTitle from '../components/styled/AnimatedTitle';
+
+const Wrapper = styled.div`
+    // TODO: Write custom transition status
+`;
 
 export default function Template({ data, transition }) {
     const { markdownRemark } = data;
     const { frontmatter, html } = markdownRemark;
+
     return (
-        <div
-            className="blog-post-container"
+        <Wrapper
+            className={`blog-post-container ${transition.status}`}
             style={transition && transition.style}
         >
             <div className="blog-post">
-                <h1>{frontmatter.title}</h1>
+                <AnimatedTitle className={transition.status}>
+                    {frontmatter.title}
+                </AnimatedTitle>
                 <h2>{frontmatter.date}</h2>
                 <div
                     className="blog-post-content"
                     dangerouslySetInnerHTML={{ __html: html }}
                 />
             </div>
-        </div>
+        </Wrapper>
     );
 }
 

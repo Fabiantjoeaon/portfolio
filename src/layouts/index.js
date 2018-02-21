@@ -14,6 +14,7 @@ const Container = styled.div`
 const Content = styled.div`
     z-index: 1;
     position: relative;
+    min-height: 100vh;
 `;
 
 const Scene = styled.div`
@@ -38,6 +39,10 @@ const ContentInner = styled.div`
 `;
 
 injectGlobal`
+    body {
+        
+        background-color: #3a3a3a;
+    }
     * {
         color: #fff;
         -webkit-font-smoothing: antialiased;
@@ -78,18 +83,29 @@ injectGlobal`
 `;
 
 class TemplateWrapper extends Component {
-    constructor(props) {
-        super(props);
-    }
+    state = {
+        isFirstVisit: false
+    };
 
     componentDidMount() {
         renderScene(findDOMNode(this.root));
+        this.setState({ isFirstVisit: false });
+
+        if (!localStorage['isFirstVisit']) {
+            localStorage.setItem('isFirstVisit', '1');
+            this.setState({ isFirstVisit: true });
+        }
+    }
+
+    componentWillUnmount() {
+        localStorage.removeItem('isFirstVisit');
     }
 
     render() {
-        const { children } = this.props;
+        const { children, location } = this.props;
+
         return (
-            <Container>
+            <Container isFirstVisit={this.state.isFirstVisit}>
                 <Helmet
                     title="Fabian Tjoe-A-On's Portfolio"
                     meta={[
@@ -99,7 +115,7 @@ class TemplateWrapper extends Component {
                 />
                 <Scene ref={root => (this.root = root)} />
                 <Content>
-                    <Header />
+                    <Header isHome={location.pathname === '/'} />
                     <ContentInner
                         style={{
                             margin: '0 auto',
