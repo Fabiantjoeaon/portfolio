@@ -6,18 +6,23 @@ const AnimatedTitle = styled.span`
     color: #fff;
     position: relative;
     z-index: 0;
+    box-decoration-break: clone;
+    display: inline-block;
+    -webkit-box-decoration-break: clone;
     // opacity: 1;
-
+    padding: 15px 20px;
     transition: all 0.8s cubic-bezier(0.14, 1, 0.34, 1);
 
     &::before {
         content: '';
         z-index: -1;
         position: absolute;
+        left: -1px;
         bottom: 0px;
         width: 0%;
         height: 100%;
-        display: block;
+        display: inline-block;
+
         background-color: #fff;
         transition: all 0.45s cubic-bezier(0.84, 0, 0.25, 1);
     }
