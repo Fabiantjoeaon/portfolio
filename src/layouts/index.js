@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 
 import Header from '../components/Header';
 import renderScene from './scene';
+import 'prism-themes/themes/prism-duotone-dark.css';
 
 const Container = styled.div`
     z-index: -1;
@@ -18,14 +19,12 @@ const Content = styled.div`
 `;
 
 const Scene = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
     height: 100%;
-    max-height: 100vh;
-    max-width: 100vw;
 
     canvas {
         width: 100%:
@@ -34,7 +33,7 @@ const Scene = styled.div`
 `;
 
 const ContentInner = styled.div`
-    width: 1200px;
+    max-width: 960px !important;
     margin: 0 auto;
 `;
 
@@ -79,7 +78,9 @@ injectGlobal`
             font-size: 100%;
         }
     }
-
+    .language-javascript {
+        border: 1px solid #ebaa73;
+    }
 `;
 
 class TemplateWrapper extends Component {
@@ -95,6 +96,9 @@ class TemplateWrapper extends Component {
             localStorage.setItem('isFirstVisit', '1');
             this.setState({ isFirstVisit: true });
         }
+        window.onbeforeunload = function() {
+            window.scrollTo(0, 0);
+        };
     }
 
     componentWillUnmount() {

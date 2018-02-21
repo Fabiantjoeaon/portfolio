@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import AnimatedTitle from '../components/styled/AnimatedTitle';
+import Content from '../components/styled/Content';
 
 const IndexContainer = styled.div``;
 
@@ -24,13 +25,6 @@ const IndexTitle = styled(AnimatedTitle)`
     &::before {
         left: -3px;
     }
-
-    // display: table;
-    // margin: auto;
-`;
-
-const IndexContent = styled.div`
-    margin-top: 50px;
 `;
 
 const StyledProjectTitle = styled(Link)`
@@ -48,11 +42,13 @@ const IndexPage = ({ transition }) => (
             </IndexTitle>
         </IndexTitleWrapper>
 
-        <IndexContent>
+        <Content>
             <p>
                 Hi there! My name is Fabian Tjoe-A-On, a 22 year old full stack
                 (web) developer from Rotterdam, and I mostly do Javascript.
             </p>
+            <br />
+            <br />
             <h2>My output</h2>
             <StyledProjectTitle to="/projects/web-synthesizer">
                 <h4>Web synthesizer with visualisation</h4>
@@ -87,7 +83,7 @@ const IndexPage = ({ transition }) => (
                     </a>
                 </li>
             </ul>
-        </IndexContent>
+        </Content>
     </IndexContainer>
 );
 

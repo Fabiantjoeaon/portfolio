@@ -26,7 +26,7 @@ const AnimatedTitle = styled.span`
         // opacity: 0;
     }
     &.entered {
-        color: #000;
+        color: #ebaa73;
         &::before {
             width: 100%;
             transition-delay: 0.8s;
@@ -35,7 +35,7 @@ const AnimatedTitle = styled.span`
     }
 
     &.exiting {
-        color: #000;
+        color: #ebaa73;
         &::before {
             width: 100%;
         }

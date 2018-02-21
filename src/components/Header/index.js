@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Navigation = styled.header`
-    height: 80px;
+    height: 90px;
     color: #fff;
     display: flex;
     flex-flow: row nowrap;
@@ -32,10 +32,21 @@ const Icons = styled.div`
     display: flex;
     width: 150px;
     justify-content: space-between;
+
+    a:hover {
+        ${IconWrapper} {
+            color: red;
+        }
+    }
 `;
 
 const IconWrapper = styled.div`
-    font-size: 1.3em;
+    font-size: 1.2em;
+
+    &:hover {
+        // background-color: red;
+        color: red;
+    }
 `;
 
 const Header = ({ isHome }) => (
