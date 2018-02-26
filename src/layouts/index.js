@@ -6,11 +6,15 @@ import Helmet from 'react-helmet';
 
 import Header from '../components/Header';
 import renderScene from './scene';
+import scrollTo from '../utils/scrollTo';
 import '../../node_modules/font-awesome/css/font-awesome.css';
 import 'prism-themes/themes/prism-duotone-dark.css';
 
 const Container = styled.div`
     z-index: -1;
+    // HINT: header height margin
+    margin-top: 100px;
+    padding-bottom: 70px;
 `;
 
 const Content = styled.div`
@@ -45,6 +49,7 @@ injectGlobal`
         /* background: -webkit-linear-gradient(top,  #fff 0%,  #ff9e69 100%); 
         background: linear-gradient(to bottom,  #fff 0%,  #ff9e69 100%);  */
         background: #fff;
+        
     }
     * {
         color: #000;
@@ -98,31 +103,46 @@ injectGlobal`
 
 class TemplateWrapper extends Component {
     state = {
-        isFirstVisit: false
+        isFirstVisit: false,
+        scrolledPastHeader: false
     };
+
+    constructor(props) {
+        super(props);
+
+        // this.setHeaderRef = this.setHeaderRef.bind(this);
+    }
 
     componentDidMount() {
         renderScene(findDOMNode(this.root));
-        this.setState({ isFirstVisit: false });
 
-        if (!localStorage['isFirstVisit']) {
-            localStorage.setItem('isFirstVisit', '1');
-            this.setState({ isFirstVisit: true });
-        }
-        window.onbeforeunload = function() {
-            window.scrollTo(0, 0);
-        };
+        const { clientHeight, offsetHeight } = findDOMNode(this.header);
+
+        window.addEventListener('scroll', e => {
+            window.pageYOffset > clientHeight
+                ? this.setState({
+                      scrolledPastHeader: true
+                  })
+                : this.setState({
+                      scrolledPastHeader: false
+                  });
+        });
     }
 
     componentWillUnmount() {
         localStorage.removeItem('isFirstVisit');
     }
 
+    setHeaderRef = header => {
+        this.header = header;
+    };
+
     render() {
         const { children, location } = this.props;
-
+        const { scrolledPastHeader } = this.state;
+        console.log('not here', scrolledPastHeader);
         return (
-            <Container isFirstVisit={this.state.isFirstVisit}>
+            <Container>
                 <Helmet
                     title="Fabian Tjoe-A-On's Portfolio"
                     meta={[
@@ -132,7 +152,11 @@ class TemplateWrapper extends Component {
                 />
                 <Scene ref={root => (this.root = root)} />
                 <Content>
-                    <Header isHome={location.pathname === '/'} />
+                    <Header
+                        setHeaderRef={this.setHeaderRef}
+                        isHome={location.pathname === '/'}
+                        scrolledPastHeader={scrolledPastHeader}
+                    />
                     <ContentInner
                         style={{
                             margin: '0 auto',

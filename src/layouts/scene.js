@@ -14,7 +14,7 @@ const gridSpeed = 0.01;
 const gridRange = 400;
 
 const sceneColor = new THREE.Color('#fff');
-const planeColor = new THREE.Color('#a6575f');
+const planeColor = new THREE.Color('#000');
 
 window.colorCount = 0.0;
 

@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { Transition } from 'react-transition-group';
 
 const Navigation = styled.header`
-    height: 90px;
+    height: 70px;
     color: #fff;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin-bottom: 50px;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    transition: all 0.55s ease-in;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        display: block;
+        background-color: #000;
+        transition: height 0.3s cubic-bezier(1, 0.005, 0.33, 1);
+        will-change: height;
+        z-index: 98;
+    }
+
+    * {
+        z-index: 99;
+    }
 
     a:link,
     a:visited,
@@ -17,6 +39,17 @@ const Navigation = styled.header`
     a:active {
         color: #fff;
         text-decoration: none;
+    }
+
+    &.active {
+        &::before {
+            height: 100%;
+        }
+
+        span,
+        i {
+            color: #fff !important;
+        }
     }
 `;
 
@@ -71,54 +104,44 @@ const TransitionText = styled.span`
     }
 `;
 
-const Header = ({ isHome }) => {
+const Header = ({ isHome, setHeaderRef, scrolledPastHeader }) => {
     return (
-        <Transition timeout={0}>
-            {status => (
-                <Navigation>
-                    <Name to="/">
-                        <TransitionText className={status}>
-                            {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
-                        </TransitionText>
-                    </Name>
+        <Navigation
+            ref={setHeaderRef}
+            className={scrolledPastHeader ? 'active' : ''}
+        >
+            <Name to="/">
+                <TransitionText className={status}>
+                    {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
+                </TransitionText>
+            </Name>
 
-                    <Icons>
-                        <a
-                            target="_blank"
-                            href="https://github.com/fabiantjoeaon"
-                        >
-                            <IconWrapper>
-                                <i className="fa fa-github" />
-                            </IconWrapper>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="https://twitter.com/fabiantjoe_a_on"
-                        >
-                            <IconWrapper>
-                                <i className="fa fa-twitter" />
-                            </IconWrapper>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="https://www.linkedin.com/in/fabiantjoeaon/"
-                        >
-                            <IconWrapper>
-                                <i className="fa fa-linkedin" />
-                            </IconWrapper>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="mailto:fabiantjoeaon@gmail.com"
-                        >
-                            <IconWrapper>
-                                <i className="fa fa-at" />
-                            </IconWrapper>
-                        </a>
-                    </Icons>
-                </Navigation>
-            )}
-        </Transition>
+            <Icons>
+                <a target="_blank" href="https://github.com/fabiantjoeaon">
+                    <IconWrapper>
+                        <i className="fa fa-github" />
+                    </IconWrapper>
+                </a>
+                <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
+                    <IconWrapper>
+                        <i className="fa fa-twitter" />
+                    </IconWrapper>
+                </a>
+                <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/fabiantjoeaon/"
+                >
+                    <IconWrapper>
+                        <i className="fa fa-linkedin" />
+                    </IconWrapper>
+                </a>
+                <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
+                    <IconWrapper>
+                        <i className="fa fa-at" />
+                    </IconWrapper>
+                </a>
+            </Icons>
+        </Navigation>
     );
 };
 
