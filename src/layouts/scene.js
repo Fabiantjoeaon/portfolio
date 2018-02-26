@@ -1,18 +1,22 @@
 import * as THREE from 'three';
+import interpolate from 'color-interpolate';
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 let mouseX;
 let mouseY;
 
+const colorMap = interpolate(['#f5f5f5', '#fff']);
 const gridVerticesArray = [];
 const gridAngles = [];
 
 const gridSpeed = 0.01;
 const gridRange = 400;
 
-const sceneColor = new THREE.Color('#3a3a3a');
-const planeColor = 0xffa969;
+const sceneColor = new THREE.Color('#fff');
+const planeColor = new THREE.Color('#a6575f');
+
+window.colorCount = 0.0;
 
 const renderScene = domNode => {
     const camera = new THREE.PerspectiveCamera(
@@ -24,10 +28,11 @@ const renderScene = domNode => {
     camera.position.z = 1000;
     const scene = new THREE.Scene();
 
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(sceneColor);
+    renderer.autoClear = false;
+    renderer.setClearColor(new THREE.Color(sceneColor), 0.0);
 
     domNode.appendChild(renderer.domElement);
 
@@ -58,6 +63,12 @@ const renderScene = domNode => {
     });
 
     const render = () => {
+        // const c = colorMap(window.colorCount);
+        // scene.fog.color.setHex(new THREE.Color(c));
+
+        // window.colorCount =
+        //     window.colorCount >= 1.0 ? 0.0 : (window.colorCount += 0.01);
+
         grid.geometry.verticesNeedUpdate = true;
         grid.geometry.colorsNeedUpdate = true;
         for (let i = 0; i < gridVerticesArray.length; i++) {

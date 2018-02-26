@@ -4,13 +4,14 @@ date: "2017-11-07"
 title: "Building my web synth: handling octaves (with Redux)"
 attachments:
   - "./sequencer.mp4"
+  - "./octaves-in-sync.mp4"
 ---
 
 ## Staying in sync
 
 Both my keyboard and my step sequencer make use of octaves so that a specific range of notes can be displayed, and then played.
-However, a proper synth should use of a wide set of notes, consisting of multiple octaves, with flexible controls.
-I needed a way to display and control octaves properly for the sequencer as well as my keyboard.
+However, a proper synthesizer should use of a wide set of notes, consisting of multiple octaves, with flexible controls.
+In this post I will demonstrate how I implemented this in my own web synthesizer.
 
 <video muted autoplay loop>
   <source src="./sequencer.mp4" type="video/mp4">
@@ -109,7 +110,7 @@ export const getNotesAsOctaves = (state, octave) =>
 
 <br>
 
-Done! Now, if you're familiar with the React-redux package, I now only have to map my selector as state to my components, and a dispatch method to call actions.
+Done! Now, if you're familiar with the <a href="https://github.com/reactjs/react-redux" target="_blank">react-redux</a> package, I now only have to map my selector as state to my components, and a dispatch method to call actions.
 
 ```javascript
 const mapStateToProps = state => ({
@@ -160,6 +161,14 @@ export const getCurrentOctave = (state, previousOctave) => {
 };
 ```
 
+<br>
+<video muted autoplay loop>
+  <source src="./octaves-in-sync.mp4" type="video/mp4">
+  
+  Your browser does not support the video tag.
+</video>
+
+<br>
 <br>
 
 And that's it, perfectly in sync :)!

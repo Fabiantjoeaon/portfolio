@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import { Transition } from 'react-transition-group';
 
 const Navigation = styled.header`
     height: 90px;
@@ -49,38 +50,76 @@ const IconWrapper = styled.div`
     }
 `;
 
-const Header = ({ isHome }) => (
-    <Navigation>
-        <Name to="/">
-            <span>{isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}</span>
-        </Name>
+const TransitionText = styled.span`
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    // transition-delay: 1.4s;
+    &.entering {
+        opacity: 1;
+    }
+    &.entered {
+        opacity: 1;
+    }
 
-        <Icons>
-            <a target="_blank" href="https://github.com/fabiantjoeaon">
-                <IconWrapper>
-                    <i className="fa fa-github" />
-                </IconWrapper>
-            </a>
-            <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
-                <IconWrapper>
-                    <i className="fa fa-twitter" />
-                </IconWrapper>
-            </a>
-            <a
-                target="_blank"
-                href="https://www.linkedin.com/in/fabiantjoeaon/"
-            >
-                <IconWrapper>
-                    <i className="fa fa-linkedin" />
-                </IconWrapper>
-            </a>
-            <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
-                <IconWrapper>
-                    <i className="fa fa-at" />
-                </IconWrapper>
-            </a>
-        </Icons>
-    </Navigation>
-);
+    &.exiting {
+        opacity: 0;
+        transition-delay: 0s;
+    }
+    &.exited {
+        opacity: 1;
+        transition-delay: 0s;
+    }
+`;
+
+const Header = ({ isHome }) => {
+    return (
+        <Transition timeout={0}>
+            {status => (
+                <Navigation>
+                    <Name to="/">
+                        <TransitionText className={status}>
+                            {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
+                        </TransitionText>
+                    </Name>
+
+                    <Icons>
+                        <a
+                            target="_blank"
+                            href="https://github.com/fabiantjoeaon"
+                        >
+                            <IconWrapper>
+                                <i className="fa fa-github" />
+                            </IconWrapper>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://twitter.com/fabiantjoe_a_on"
+                        >
+                            <IconWrapper>
+                                <i className="fa fa-twitter" />
+                            </IconWrapper>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://www.linkedin.com/in/fabiantjoeaon/"
+                        >
+                            <IconWrapper>
+                                <i className="fa fa-linkedin" />
+                            </IconWrapper>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="mailto:fabiantjoeaon@gmail.com"
+                        >
+                            <IconWrapper>
+                                <i className="fa fa-at" />
+                            </IconWrapper>
+                        </a>
+                    </Icons>
+                </Navigation>
+            )}
+        </Transition>
+    );
+};
 
 export default Header;

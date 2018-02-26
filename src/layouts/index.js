@@ -6,8 +6,8 @@ import Helmet from 'react-helmet';
 
 import Header from '../components/Header';
 import renderScene from './scene';
-import 'prism-themes/themes/prism-duotone-dark.css';
 import '../../node_modules/font-awesome/css/font-awesome.css';
+import 'prism-themes/themes/prism-duotone-dark.css';
 
 const Container = styled.div`
     z-index: -1;
@@ -41,10 +41,13 @@ const ContentInner = styled.div`
 injectGlobal`
     body {
         
-        background-color: #3a3a3a;
+        /* background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%);
+        background: -webkit-linear-gradient(top,  #a6575f 0%,#bfe9ff 100%); 
+        background: linear-gradient(to bottom,  #a6575f 0%,#718692 100%); */
+        background: #fff;
     }
     * {
-        color: #fff;
+        color: #000;
         -webkit-font-smoothing: antialiased;
     }
     tt,
@@ -79,11 +82,14 @@ injectGlobal`
             font-size: 100%;
         }
     }
+    .gatsby-highlight {
+        
+    }
     .language-javascript {
-        border: 1px solid #ebaa73;
+        border: 1px solid #bfacfc;
     }
     code[class*="language-"], pre[class*="language-"] {
-        background: rgba(42, 39, 52, 0.6) !important;
+        background: rgba(255,255,255, 0.9) !important;
     }
     .comment {
         color: #909090 !important;

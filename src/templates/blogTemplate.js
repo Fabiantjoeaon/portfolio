@@ -9,24 +9,13 @@ const Wrapper = styled.div`
 `;
 
 const AnimatedContent = styled(Content)`
-    transition: all 0.3s ease-out;
-    transition-delay: 1.4s;
-    opacity: 0;
-    &.entering {
-        opacity: 0;
-    }
-    &.entered {
-        opacity: 1;
-    }
-
-    &.exiting {
-        opacity: 0;
-        transition-delay: 0s;
-    }
-
     video {
         width: 100% !important;
         height: auto !important;
+    }
+
+    h2 {
+        // font-style: italic;
     }
 `;
 

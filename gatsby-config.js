@@ -20,7 +20,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
-                fonts: [`Asul`, `Chivo`]
+                fonts: [`Asul`, `Chivo:400,700i`]
             }
         },
         {
