@@ -115,27 +115,35 @@ class TemplateWrapper extends Component {
 
     componentDidMount() {
         renderScene(findDOMNode(this.root));
-
-        const { clientHeight, offsetHeight } = findDOMNode(this.header);
+        const { clientHeight } = findDOMNode(this.header);
 
         window.addEventListener('scroll', e => {
-            window.pageYOffset > clientHeight
-                ? this.setState({
-                      scrolledPastHeader: true
-                  })
-                : this.setState({
-                      scrolledPastHeader: false
-                  });
+            this.shouldSetHeaderBackground(clientHeight);
+        });
+        window.addEventListener('resize', e => {
+            this.shouldSetHeaderBackground(clientHeight);
         });
     }
 
     componentWillUnmount() {
-        localStorage.removeItem('isFirstVisit');
+        window.removeEventListener('scroll', this.shouldSetHeaderBackground);
+        window.removeEventListener('resize', this.shouldSetHeaderBackground);
     }
 
     setHeaderRef = header => {
         this.header = header;
     };
+
+    shouldSetHeaderBackground(clientHeight) {
+        window.pageYOffset > clientHeight &&
+        window.matchMedia('screen and (max-width: 1300px)').matches
+            ? this.setState({
+                  scrolledPastHeader: true
+              })
+            : this.setState({
+                  scrolledPastHeader: false
+              });
+    }
 
     render() {
         const { children, location } = this.props;
