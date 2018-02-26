@@ -37,6 +37,13 @@ const StyledProjectTitle = styled(Link)`
     font-size: 4em;
 `;
 
+const OutputTitle = styled.h1`
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 2em;
+`;
+
 const IndexPage = ({ transition }) => (
     <IndexContainer
         style={transition && transition.style}
@@ -47,12 +54,11 @@ const IndexPage = ({ transition }) => (
         </IndexTitleWrapper>
         <Content className={transition.status}>
             <p>
-                Hi there! My name is Fabian Tjoe - A - On, a 22 year old
-                full-stack(web) developer from Rotterdam, and I mostly do
-                Javascript. While being a sucker for well - designed, functional
-                interfaces and web - apps, I also find my passion in trying to
-                find ways to combine audio with code, which is in most cases
-                WebGL. <br />
+                I'm Fabian Tjoe - A - On, a 22 year old full-stack(web)
+                developer from Rotterdam, and I mostly do Javascript. While
+                being a sucker for well - designed, functional interfaces and
+                web - apps, I also find my passion in trying to find ways to
+                combine audio with code, which is in most cases WebGL. <br />
                 <br />
                 Oh and I love spinning vinyl! <br />
                 <br />
@@ -60,6 +66,14 @@ const IndexPage = ({ transition }) => (
                 in any of my work, or just want to chat, holla!{' '}
             </p>{' '}
             <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <IndexTitleWrapper>
+                <IndexTitle>My output</IndexTitle>
+            </IndexTitleWrapper>
             <br />
             <StyledProjectTitle to="/projects/web-synthesizer">
                 Web synthesizer with visualisation
