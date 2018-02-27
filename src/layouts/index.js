@@ -45,10 +45,17 @@ const ContentInner = styled.div`
 injectGlobal`
     body {
         
-        /* background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%); */
-        /* background: -webkit-linear-gradient(top,  #fff 0%,  #ff9e69 100%); 
-        background: linear-gradient(to bottom,  #fff 0%,  #ff9e69 100%);  */
-        background: #fff;
+        background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%); 
+        background: -webkit-linear-gradient(top,  #fff 0%,  #ff9e69 100%); 
+        background: linear-gradient(to bottom,  #fff 0%,  #ff9e69 100%);      
+        &.entering {
+            background-size: 100% 100%;
+        }
+         
+         &.exiting {
+            background-size: 400% 400%;
+         }
+        transition: all 0.6s ease-out;
         
     }
     * {
@@ -87,9 +94,20 @@ injectGlobal`
             font-size: 100%;
         }
     }
-    .gatsby-highlight {
-        
+    img {
+        width: 100%;
+        border: 17px solid transparent;
+        border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
+        border-image-slice: 1;
+        margin: 30px 0px;
     }
+
+    p {
+        line-height: 2em;
+    }
+    /* .gatsby-highlight {
+        
+    } */
     .language-javascript {
         border: 1px solid #bfacfc;
     }
@@ -109,8 +127,6 @@ class TemplateWrapper extends Component {
 
     constructor(props) {
         super(props);
-
-        // this.setHeaderRef = this.setHeaderRef.bind(this);
     }
 
     componentDidMount() {
@@ -135,6 +151,7 @@ class TemplateWrapper extends Component {
     };
 
     shouldSetHeaderBackground(clientHeight) {
+        //FIXME: Performance issue due to setState calls every scroll
         window.pageYOffset > clientHeight &&
         window.matchMedia('screen and (max-width: 1300px)').matches
             ? this.setState({
@@ -148,7 +165,7 @@ class TemplateWrapper extends Component {
     render() {
         const { children, location } = this.props;
         const { scrolledPastHeader } = this.state;
-        console.log('not here', scrolledPastHeader);
+
         return (
             <Container>
                 <Helmet

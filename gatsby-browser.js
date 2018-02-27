@@ -9,6 +9,7 @@ import { Transition } from 'react-transition-group';
 import createHistory from 'history/createBrowserHistory';
 
 import getTransitionStyle from './src/utils/getTransitionStyle';
+import scrollTo from './src/utils/scrollTo';
 
 const timeout = 1000;
 const historyExitingEventType = `history::exiting`;
@@ -35,6 +36,7 @@ class ReplaceComponentRenderer extends Component {
     }
 
     listenerHandler(event) {
+        scrollTo(0, 1000, 'easeInQuart');
         const nextPageResources =
             this.props.loader.getResourcesForPathname(
                 event.detail.pathname,
@@ -70,6 +72,15 @@ class ReplaceComponentRenderer extends Component {
             in: !this.state.exiting,
             key: this.props.location.key
         };
+
+        if (this.state.exiting && !document.body.classList.contains('exiting'))
+            document.body.classList = 'exiting';
+        if (
+            !this.state.exiting &&
+            !document.body.classList.contains('entering')
+        )
+            document.body.classList = 'entering';
+
         return (
             <Transition {...transitionProps}>
                 {status =>
