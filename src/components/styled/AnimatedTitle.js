@@ -30,7 +30,7 @@ const AnimatedTitle = styled.span`
         left: -1px;
         bottom: 0px;
 
-        background-color: #261d57;
+        background-color: #7577cd;
         transition: all 0.45s cubic-bezier(0.84, 0, 0.25, 1);
     }
 
@@ -41,7 +41,7 @@ const AnimatedTitle = styled.span`
         top: 20px;
         right: -20px;
 
-        background-color: #bfacfc;
+        background-color: #080957;
         transition: all 0.45s cubic-bezier(0.74, 0.3, 0.25, 1);
     }
 

@@ -44,13 +44,11 @@ const ContentInner = styled.div`
 
 injectGlobal`
     html {
-        /* background: linear-gradient(0deg, #fff, #ff9e69); */
     }
     body {
-        
-        background: -moz-linear-gradient(top,  #fff 0%, #ff9e69 100%); 
-        background: -webkit-linear-gradient(top,  #fff 0%,  #ff9e69 100%); 
-        background: linear-gradient(to bottom,  #fff 0%,  #ff9e69 100%);      
+        background: -moz-linear-gradient(top,  #fff 0%, #7577CD 100%); 
+        background: -webkit-linear-gradient(top,  #fff 0%,  #7577CD 100%); 
+        background: linear-gradient(to bottom,  #fff 0%,  #7577CD 100%);      
 
         &.entering {
             background-size: 100% 100%;
