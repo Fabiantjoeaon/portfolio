@@ -43,11 +43,15 @@ const ContentInner = styled.div`
 `;
 
 injectGlobal`
+    html {
+        /* background: linear-gradient(0deg, #fff, #ff9e69); */
+    }
     body {
         
-        background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%); 
+        background: -moz-linear-gradient(top,  #fff 0%, #ff9e69 100%); 
         background: -webkit-linear-gradient(top,  #fff 0%,  #ff9e69 100%); 
         background: linear-gradient(to bottom,  #fff 0%,  #ff9e69 100%);      
+
         &.entering {
             background-size: 100% 100%;
         }
@@ -55,7 +59,7 @@ injectGlobal`
          &.exiting {
             background-size: 400% 400%;
          }
-        transition: all 0.6s ease-out;
+        transition: all 0.5s ease-out;
         
     }
     * {
@@ -96,10 +100,10 @@ injectGlobal`
     }
     img {
         width: 100%;
-        border: 17px solid transparent;
-        border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
-        border-image-slice: 1;
-        margin: 30px 0px;
+        border: 40px solid transparent;
+        /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
+        border-image-slice: 1; */
+        margin: 10px 0px;
     }
 
     p {

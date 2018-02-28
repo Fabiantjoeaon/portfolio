@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Content = styled.div`
-    margin-top: 100px;
+    margin: 100px auto 0px auto;
     transition: all 0.3s ease-out;
     transition-delay: 1.4s;
     opacity: 0;
@@ -15,6 +15,10 @@ const Content = styled.div`
     &.exiting {
         opacity: 1;
         transition-delay: 0s;
+    }
+
+    @media (max-width: 900px) {
+        width: 85%;
     }
 `;
 

@@ -19,6 +19,10 @@ const IndexTitleWrapper = styled.div`
     }
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const IndexTitle = styled(AnimatedTitle)`
     font-size: 2.3em;
     // font-family: 'Chivo Italic',
@@ -31,10 +35,11 @@ const IndexTitle = styled(AnimatedTitle)`
     }
 `;
 
-const StyledProjectTitle = styled(Link)`
+const StyledProjectTitle = styled.h4`
     text-decoration: none;
     font-family: 'Chivo', sans-serif;
     font-size: 4em;
+    font-weight: 100;
 `;
 
 const OutputTitle = styled.h1`
@@ -75,9 +80,11 @@ const IndexPage = ({ transition }) => (
                 <IndexTitle>My output</IndexTitle>
             </IndexTitleWrapper>
             <br />
-            <StyledProjectTitle to="/projects/web-synthesizer">
-                Web synthesizer with visualisation
-            </StyledProjectTitle>{' '}
+            <StyledLink to="/projects/web-synthesizer">
+                <StyledProjectTitle>
+                    Web synthesizer with visualisation
+                </StyledProjectTitle>{' '}
+            </StyledLink>
             <br />
             <Link to="/blog/building-my-web-synth--handling-octaves">
                 <div>

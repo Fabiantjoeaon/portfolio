@@ -36,7 +36,7 @@ class ReplaceComponentRenderer extends Component {
     }
 
     listenerHandler(event) {
-        scrollTo(0, 1000, 'easeInQuart');
+        scrollTo(0, 1000, 'easeInOutQuint');
         const nextPageResources =
             this.props.loader.getResourcesForPathname(
                 event.detail.pathname,
