@@ -153,15 +153,14 @@ class TemplateWrapper extends Component {
     };
 
     shouldSetHeaderBackground(clientHeight) {
-        //FIXME: Performance issue due to setState calls every scroll
-        window.pageYOffset > clientHeight &&
-        window.matchMedia('screen and (max-width: 1300px)').matches
-            ? this.setState({
-                  scrolledPastHeader: true
-              })
-            : this.setState({
-                  scrolledPastHeader: false
-              });
+        let scrolledPastHeader;
+
+        // TODO: Width should be variable: contentwidth minus the sides
+        if (window.matchMedia('screen and (max-width: 1300px)').matches)
+            scrolledPastHeader = window.pageYOffset > clientHeight;
+
+        if (this.state.scrolledPastHeader !== scrolledPastHeader)
+            this.setState({ scrolledPastHeader });
     }
 
     render() {
