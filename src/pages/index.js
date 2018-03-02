@@ -7,6 +7,18 @@ import Content from '../components/styled/Content';
 
 const IndexContainer = styled.div``;
 
+const IndexContent = styled.div`
+    // min-height: 50vh;
+    margin-top: 150px;
+    p {
+        margin-bottom: 250px;
+    }
+
+    // ${IndexTitleWrapper} {
+    //     margin-top: 50px;
+    // }
+`;
+
 const IndexTitleWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -25,8 +37,10 @@ const StyledLink = styled(Link)`
 
 const IndexTitle = styled(AnimatedTitle)`
     font-size: 2.3em;
+    text-align: center;
     // font-family: 'Chivo Italic',
     font-weight: 700;
+    margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
 
@@ -58,24 +72,21 @@ const IndexPage = ({ transition }) => (
             <IndexTitle className={transition.status}>Hi there!</IndexTitle>{' '}
         </IndexTitleWrapper>
         <Content className={transition.status}>
-            <p>
-                I'm Fabian Tjoe - A - On, a 22 year old full-stack(web)
-                developer from Rotterdam, and I mostly do Javascript. While
-                being a sucker for well - designed, functional interfaces and
-                web - apps, I also find my passion in trying to find ways to
-                combine audio with code, which is in most cases WebGL. <br />
-                <br />
-                Oh and I love spinning vinyl! <br />
-                <br />
-                I am currently looking for an internship. If you're interested
-                in any of my work, or just want to chat, holla!{' '}
-            </p>{' '}
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <IndexContent>
+                <p>
+                    I'm Fabian Tjoe - A - On, a 22 year old full-stack(web)
+                    developer from Rotterdam, and I mostly do Javascript. While
+                    being a sucker for well - designed, functional interfaces
+                    and web - apps, I also find my passion in trying to find
+                    ways to combine audio with code, which is in most cases
+                    WebGL. <br />
+                    <br />
+                    Oh and I love spinning vinyl! <br />
+                    <br />
+                    I am currently looking for an internship. If you're
+                    interested in any of my work, or just want to chat, holla!{' '}
+                </p>{' '}
+            </IndexContent>
             <IndexTitleWrapper>
                 <IndexTitle>My output</IndexTitle>
             </IndexTitleWrapper>
@@ -88,7 +99,19 @@ const IndexPage = ({ transition }) => (
             <br />
             <Link to="/blog/building-my-web-synth--handling-octaves">
                 <div>
-                    <span> Building my web synth : Handling octaves </span>{' '}
+                    <span> Building my web synth: Handling octaves </span>{' '}
+                </div>{' '}
+            </Link>{' '}
+            <br />
+            <Link to="/blog/building-my-web-synth--rendering-knobs">
+                <div>
+                    <span> Building my web synth: Rendering knobs </span>{' '}
+                </div>{' '}
+            </Link>{' '}
+            <br />
+            <Link to="/blog/building-my-web-synth--managing-state">
+                <div>
+                    <span> Building my web synth: Managing state </span>{' '}
                 </div>{' '}
             </Link>{' '}
             <br />
@@ -97,7 +120,6 @@ const IndexPage = ({ transition }) => (
             <br />
             <br />
             <StyledProjectTitle> WebGL Experiments </StyledProjectTitle> <br />
-            <br />
             <br />
             <ul>
                 <li>

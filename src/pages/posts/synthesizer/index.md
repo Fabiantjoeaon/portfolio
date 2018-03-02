@@ -24,6 +24,6 @@ Due to the modular nature of synthesizers, I tried utilising the component based
 />
 ```
 
-<!-- <br><br/> -->
+<br>
 
 One reason I have used Redux for this project is not only to manage a large set of state, but also to extract my state to a higher level, so that I can seperate my WebGL code, and subscribe to store updates in WebGL, so that I can visualize something whenever a parameter is changed.
