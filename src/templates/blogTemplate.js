@@ -16,7 +16,7 @@ const AnimatedContent = styled(Content)`
 
     h2 {
         font-family: 'Asul', sans-serif;
-        margin: 30px 0px 20px 0px;
+        margin: 80px 0px 20px 0px;
     }
 
     p {
