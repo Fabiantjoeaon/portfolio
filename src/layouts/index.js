@@ -91,6 +91,10 @@ injectGlobal`
     pre tt:after {
         content: '';
     }
+
+    iframe {
+        border: 0px !important;
+    }
     @media only screen and (max-width: 480px) {
         html {
             font-size: 100%;

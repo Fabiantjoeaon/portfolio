@@ -10,6 +10,7 @@ const IndexContainer = styled.div``;
 const IndexContent = styled.div`
     // min-height: 50vh;
     margin-top: 150px;
+    
     p {
         margin-bottom: 250px;
     }
@@ -81,7 +82,8 @@ const IndexPage = ({ transition }) => (
                     ways to combine audio with code, which is in most cases
                     WebGL. <br />
                     <br />
-                    Oh and I love spinning vinyl! <br />
+                    Oh and I love spinning vinyl, if you're into electronic music, check out my recordings :) <br />
+                    
                     <br />
                     I am currently looking for an internship. If you're
                     interested in any of my work, or just want to chat, holla!{' '}
@@ -90,6 +92,14 @@ const IndexPage = ({ transition }) => (
             <IndexTitleWrapper>
                 <IndexTitle>My output</IndexTitle>
             </IndexTitleWrapper>
+            <StyledProjectTitle>
+                Recordings
+            </StyledProjectTitle>{' '}
+            <br />
+            <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameborder="0" ></iframe>
+            <br />
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/393574845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <br />
             <br />
             <StyledLink to="/projects/web-synthesizer">
                 <StyledProjectTitle>
@@ -97,51 +107,51 @@ const IndexPage = ({ transition }) => (
                 </StyledProjectTitle>{' '}
             </StyledLink>
             <br />
-            <Link to="/blog/building-my-web-synth--handling-octaves">
-                <div>
-                    <span> Building my web synth: Handling octaves </span>{' '}
-                </div>{' '}
-            </Link>{' '}
-            <br />
             <Link to="/blog/building-my-web-synth--rendering-knobs">
                 <div>
-                    <span> Building my web synth: Rendering knobs </span>{' '}
+                    <span> Rendering responsive synthesizer knobs using React and D3 </span>{' '}
                 </div>{' '}
             </Link>{' '}
             <br />
-            <Link to="/blog/building-my-web-synth--managing-state">
+            <Link to="/blog/building-my-web-synth--handling-octaves">
                 <div>
-                    <span> Building my web synth: Managing state </span>{' '}
+                    <span> Handling octaves with Redux </span>{' '}
                 </div>{' '}
             </Link>{' '}
+            
             <br />
             <br />
-            <StyledProjectTitle> Changeroo </StyledProjectTitle> <br />
-            <br />
+            <StyledLink to="/projects/changeroo">
+                <div>
+                    <StyledProjectTitle> Changeroo </StyledProjectTitle>
+                </div>
+            </StyledLink>
+            
             <br />
             <StyledProjectTitle> WebGL Experiments </StyledProjectTitle> <br />
-            <br />
-            <ul>
-                <li>
-                    <a
-                        target="_blank"
-                        href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
-                    >
-                        <span> Animated perlin noise shader </span>{' '}
-                    </a>{' '}
-                </li>{' '}
-                <li>
-                    <a
-                        target="_blank"
-                        href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"
-                    >
-                        <span>
-                            Gooey effect with gravitational attraction using
-                            marching cubes{' '}
-                        </span>{' '}
-                    </a>{' '}
-                </li>{' '}
-            </ul>{' '}
+            
+            <div>
+                <a
+                    target="_blank"
+                    href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
+                >
+                    <span> Animated perlin noise shader </span>{' '}
+                </a>{' '}
+            </div>
+            <br/>
+            <div>
+                <a
+                    target="_blank"
+                    href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"
+                >
+                    <span>
+                        Gooey effect with gravitational attraction using
+                        marching cubes{' '}
+                    </span>{' '}
+                </a>{' '}
+            </div>
+                
+            
         </Content>{' '}
     </IndexContainer>
 );

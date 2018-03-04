@@ -1,7 +1,7 @@
 ---
 path: "/blog/building-my-web-synth--rendering-knobs"
 date: "2018-2-28"
-title: "Building my web synth: rendering knobs (with D3 and React)"
+title: "Rendering responsive synthesizer knobs using React and D3"
 attachments:
   - "./synth.JPG"
   - "./knob-still.png"
@@ -152,6 +152,7 @@ Then later, whenever the store state updates for this parameter changes, a re-re
 
     componentWillUpdate(nextProps, nextState) {
         this.updateKnob(
+            // Method to saturate value to floating point value between 1 and 0
             saturateZeroOne(this.props.min, this.props.max, nextProps.value),
             nextProps
         );

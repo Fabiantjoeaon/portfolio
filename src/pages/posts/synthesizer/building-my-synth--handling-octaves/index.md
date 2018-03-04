@@ -1,7 +1,7 @@
 ---
 path: "/blog/building-my-web-synth--handling-octaves"
 date: "2017-11-07"
-title: "Building my web synth: handling octaves (with Redux)"
+title: "Handling octaves with Redux"
 attachments:
   - "./sequencer.mp4"
   - "./octaves-in-sync.mp4"

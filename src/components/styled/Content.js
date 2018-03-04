@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Content = styled.div`
-    margin: 100px auto 0px auto;
+    margin: 100px auto 100px auto;
     transition: all 0.3s ease-out;
     transition-delay: 1.4s;
     opacity: 0;
