@@ -40,6 +40,18 @@ const Scene = styled.div`
 const ContentInner = styled.div`
     max-width: 960px !important;
     margin: 0 auto;
+    
+    
+    padding: 0px 1.0875rem 1.45rem;
+    
+    
+    @media only screen and (max-width: 1065px) and (min-width: 800px) {
+        padding: 0px 5.0875rem 1.45rem;
+    }
+
+    // @media (max-width: 800px) {
+    //     padding: 0px 1.0875rem 1.45rem;
+    // }
 `;
 
 injectGlobal`
@@ -106,6 +118,13 @@ injectGlobal`
         /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
         border-image-slice: 1; */
         margin: 10px 0px;
+    }
+
+    @media (max-width: 900px) {
+        img, video {
+            border: 0px;
+            margin: 30px 0px;
+        }
     }
 
     p {
@@ -189,10 +208,7 @@ class TemplateWrapper extends Component {
                     />
                     <ContentInner
                         style={{
-                            margin: '0 auto',
-                            maxWidth: 960,
-                            padding: '0px 1.0875rem 1.45rem',
-                            paddingTop: 0
+                      
                         }}
                     >
                         {children()}

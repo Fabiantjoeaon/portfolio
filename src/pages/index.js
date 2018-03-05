@@ -48,6 +48,12 @@ const IndexTitle = styled(AnimatedTitle)`
     &::before {
         left: -3px;
     }
+
+
+    @media (max-width: 1065px) {
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
 `;
 
 const StyledProjectTitle = styled.h4`
@@ -56,6 +62,14 @@ const StyledProjectTitle = styled.h4`
     font-size: 4em;
     font-weight: 100;
     margin-top: 40px;
+
+    @media (max-width: 1065px) {
+        font-size: 3em;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 2.2em;
+    }
 `;
 
 const OutputTitle = styled.h1`
@@ -83,6 +97,7 @@ const IndexPage = ({ transition }) => (
                     ways to combine audio with code, which is in most cases
                     WebGL. <br />
                     <br />
+                    Scroll down to have a look at some of my projects and blog posts.
                     Oh and I love spinning vinyl, if you're into electronic music, check out my recordings :) <br />
                     
                     <br />
@@ -148,9 +163,9 @@ const IndexPage = ({ transition }) => (
                 Recordings
             </StyledProjectTitle>{' '}
             <br />
-            <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameborder="0" ></iframe>
+            <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameBorder="0" ></iframe>
             <br />
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/393574845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <iframe width="100%" height="300" scrolling="no" frameBorder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/393574845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             
         </Content>{' '}
     </IndexContainer>

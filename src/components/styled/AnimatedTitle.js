@@ -72,6 +72,12 @@ const AnimatedTitle = styled.span`
             width: 0%;
         }
     }
+
+    @media only screen and (max-device-width: 667px) { 
+        width: 80%;
+        font-size: 1.4em;
+        padding: 15px 20px;
+    }
 `;
 
 export default AnimatedTitle;
