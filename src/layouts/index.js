@@ -3,10 +3,12 @@ import { findDOMNode } from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import interpolate from 'color-interpolate';
 
 import Header from '../components/Header';
 import renderScene from './scene';
 import scrollTo from '../utils/scrollTo';
+import {saturateZeroOne, saturatePercentage} from '../utils/saturateValue';
 import '../../node_modules/font-awesome/css/font-awesome.css';
 import 'prism-themes/themes/prism-duotone-dark.css';
 
@@ -157,9 +159,11 @@ class TemplateWrapper extends Component {
     componentDidMount() {
         renderScene(findDOMNode(this.root));
         const { clientHeight } = findDOMNode(this.header);
+        const colorMap = interpolate(['#fff', '#a5abff']);
 
         window.addEventListener('scroll', e => {
             this.shouldSetHeaderBackground(clientHeight);
+            this.updateSceneFogColor(colorMap);
         });
         window.addEventListener('resize', e => {
             this.shouldSetHeaderBackground(clientHeight);
@@ -184,6 +188,17 @@ class TemplateWrapper extends Component {
 
         if (this.state.scrolledPastHeader !== scrolledPastHeader)
             this.setState({ scrolledPastHeader });
+    }
+
+    updateSceneFogColor(colorMap) {
+        const {body, documentElement} = document;
+        const height = Math.max( body.scrollHeight, body.offsetHeight, 
+            documentElement.clientHeight, documentElement.scrollHeight, documentElement.offsetHeight );
+        
+        const scrollTop = documentElement.scrollTop || body.scrollTop;
+        console.log(colorMap(saturateZeroOne(0, height, scrollTop)))
+        window.sceneColor = colorMap(saturateZeroOne(0, height, scrollTop));
+        
     }
 
     render() {

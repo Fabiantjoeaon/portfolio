@@ -59,7 +59,7 @@ const AnimatedTitle = styled.span`
         &::after {
             width: 100%;
 
-            transition-delay: 0.55s;
+            transition-delay: 0.6s;
         }
 
         transition-delay: 0.7s;

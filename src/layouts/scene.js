@@ -13,7 +13,8 @@ const gridAngles = [];
 const gridSpeed = 0.01;
 const gridRange = 400;
 
-const sceneColor = new THREE.Color('#a5abff');
+// const sceneColor = new THREE.Color('#a5abff');
+
 const planeColor = new THREE.Color('#fff');
 
 window.colorCount = 0.0;
@@ -32,11 +33,11 @@ const renderScene = domNode => {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.autoClear = false;
-    renderer.setClearColor(new THREE.Color(sceneColor), 0.0);
+    renderer.setClearColor(new THREE.Color(window.sceneColor), 0.0);
 
     domNode.appendChild(renderer.domElement);
 
-    scene.fog = new THREE.FogExp2(sceneColor, 0.0015);
+    scene.fog = new THREE.FogExp2(window.sceneColor, 0.0008);
 
     const geometry = new THREE.PlaneGeometry(5000, 5000, 30, 30);
     geometry.vertices.forEach((vert, i) => {
@@ -79,6 +80,9 @@ const renderScene = domNode => {
         grid.rotation.z += 0.0025;
 
         camera.lookAt(scene.position);
+
+        scene.fog = new THREE.FogExp2(window.sceneColor, 0.0008);
+        renderer.setClearColor(new THREE.Color(window.sceneColor), 0.0);
 
         renderer.render(scene, camera);
     };

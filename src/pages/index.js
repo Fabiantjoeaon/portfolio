@@ -15,6 +15,12 @@ const IndexContent = styled.div`
         margin-bottom: 250px;
     }
 
+    @media (max-width: 1065px) {
+        p {
+            margin-bottom: 150px;
+        }
+    }
+
     // ${IndexTitleWrapper} {
     //     margin-top: 50px;
     // }
@@ -56,12 +62,47 @@ const IndexTitle = styled(AnimatedTitle)`
     }
 `;
 
-const StyledProjectTitle = styled.h4`
+const StyledProjectTitle = styled.span`
     text-decoration: none;
     font-family: 'Chivo', sans-serif;
     font-size: 4em;
     font-weight: 100;
-    margin-top: 40px;
+    display: inline-block;
+    box-decoration-break: clone;
+    font-style: italic;
+    font-weight: 700;
+    color: #000;
+    display: inline-block;
+    -webkit-box-decoration-break: clone;
+    margin: 40px 0px 20px;
+    padding: 0px 15px;
+    transform: translate3D(-15px, 0px, 0px);
+    position: relative;
+    z-index: 2;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        z-index: -1;
+        background-color: #000;
+        width: 0%;
+        
+        transition: all 0.5s 0.1s cubic-bezier(0.14, 1, 0.34, 1);
+    }
+
+    transition: all 0.7s cubic-bezier(0.14, 0.7, 0.34, 1);
+
+    &:hover, &:active {
+        color: #fff;
+        transform: translate3D(0px, 0px, 0px);
+        &::before {
+            width: 100%;
+        }
+    }
 
     @media (max-width: 1065px) {
         font-size: 3em;

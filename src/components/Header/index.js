@@ -72,6 +72,14 @@ const Icons = styled.div`
             color: red;
         }
     }
+
+    @media (max-width: 800px) {    
+        width: 110px;
+
+        ${IconWrapper} {
+            font-size: 1em;
+        }
+    }
 `;
 
 const IconWrapper = styled.div`
