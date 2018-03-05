@@ -55,6 +55,7 @@ const StyledProjectTitle = styled.h4`
     font-family: 'Chivo', sans-serif;
     font-size: 4em;
     font-weight: 100;
+    margin-top: 40px;
 `;
 
 const OutputTitle = styled.h1`
@@ -92,15 +93,7 @@ const IndexPage = ({ transition }) => (
             <IndexTitleWrapper>
                 <IndexTitle>My output</IndexTitle>
             </IndexTitleWrapper>
-            <StyledProjectTitle>
-                Recordings
-            </StyledProjectTitle>{' '}
-            <br />
-            <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameborder="0" ></iframe>
-            <br />
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/393574845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-            <br />
-            <br />
+            
             <StyledLink to="/projects/web-synthesizer">
                 <StyledProjectTitle>
                     Web synthesizer with visualisation
@@ -150,7 +143,14 @@ const IndexPage = ({ transition }) => (
                     </span>{' '}
                 </a>{' '}
             </div>
-                
+            <br />
+            <StyledProjectTitle>
+                Recordings
+            </StyledProjectTitle>{' '}
+            <br />
+            <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameborder="0" ></iframe>
+            <br />
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/393574845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             
         </Content>{' '}
     </IndexContainer>

@@ -19,10 +19,13 @@ The synthezier itself is build using React and Redux.
 </video>
 
 
-<br>
+
+
 I've used CSS Grid and D3.js to realise a complex layout that resembles a real life synthesizer, which is based on my Korg Minilogue I have at home.
 <img src="./synth.JPG" />
 Due to the modular nature of synthesizers, I tried utilising the component based style of React to its full potential, making every module a seperate component, which I could easily position in my grid by passing it a set of columns and rows. Here is an example of a module:
+
+
 
 ```javascript
 <Oscillator
@@ -77,6 +80,7 @@ Note the settings prop in the code block above. By abstracting my configuration 
 ```
 <br/>
 Relevant blog posts:
+<br/>
 <br/>
 <div>
     <a href="/blog/building-my-web-synth--rendering-knobs">Rendering responsive synthesizer knobs using React and D3</a>

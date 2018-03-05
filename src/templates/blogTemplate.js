@@ -14,6 +14,11 @@ const AnimatedContent = styled(Content)`
         height: auto !important;
     }
 
+    iframe {
+        margin: 0 auto;
+        display: block;
+    }
+
     h2 {
         font-family: 'Asul', sans-serif;
         margin: 80px 0px 20px 0px;
@@ -48,6 +53,19 @@ const BlogFooter = styled.div`
     }
 `;
 
+
+const TitleWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    // flex-flow: column nowrap;
+    justify-content: center;
+
+    p,
+    ${AnimatedTitle} {
+        // align-self: center;
+    }
+`;
+
 export default function Template({ data, transition, ...props }) {
     if (data) {
         const { markdownRemark } = data;
@@ -59,9 +77,11 @@ export default function Template({ data, transition, ...props }) {
                 style={transition && transition.style}
             >
                 <div className="blog-post">
-                    <AnimatedTitle className={transition.status}>
-                        {frontmatter.title}
-                    </AnimatedTitle>
+                    <TitleWrapper>
+                        <AnimatedTitle className={transition.status}>
+                            {frontmatter.title}
+                        </AnimatedTitle>
+                    </TitleWrapper>
                     <AnimatedContent
                         className={`blog-post-content ${transition.status}`}
                     >

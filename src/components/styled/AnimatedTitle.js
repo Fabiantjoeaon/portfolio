@@ -5,6 +5,7 @@ const AnimatedTitle = styled.span`
     padding: 15px 25px;
     color: #000;
     position: relative;
+    text-align: center;
     z-index: 0;
     box-decoration-break: clone;
     font-style: italic;
