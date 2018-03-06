@@ -10,7 +10,7 @@ import renderScene from './scene';
 import scrollTo from '../utils/scrollTo';
 import { saturateZeroOne, saturatePercentage } from '../utils/saturateValue';
 import '../../node_modules/font-awesome/css/font-awesome.css';
-import 'prism-themes/themes/prism-duotone-sea.css';
+import 'prism-themes/themes/prism-atom-dark.css';
 
 const Container = styled.div`
     z-index: -1;
@@ -138,7 +138,7 @@ injectGlobal`
     }
     code[class*="language-"], pre[class*="language-"] {
         color: #fff !important;
-        background: rgba(10,10,10, 0.8) !important;
+        background: rgba(20,20,20, 0.8) !important;
     }
     .interpolation {
         color: #fff;
