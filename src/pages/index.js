@@ -75,8 +75,8 @@ const StyledProjectTitle = styled.span`
     display: inline-block;
     -webkit-box-decoration-break: clone;
     margin: 40px 0px 20px;
-    padding: 0px 15px;
-    transform: translate3D(-15px, 0px, 0px);
+    padding: 5px 25px;
+    transform: translate3D(-25px, 0px, 0px);
     position: relative;
     z-index: 2;
 

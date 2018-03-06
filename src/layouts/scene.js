@@ -15,7 +15,7 @@ const gridRange = 400;
 
 // const sceneColor = new THREE.Color('#a5abff');
 
-const planeColor = new THREE.Color('#fff');
+const planeColor = new THREE.Color('#a5abff');
 
 window.colorCount = 0.0;
 
@@ -62,14 +62,9 @@ const renderScene = domNode => {
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
     });
+    console.log(grid.material.color);
 
     const render = () => {
-        // const c = colorMap(window.colorCount);
-        // scene.fog.color.setHex(new THREE.Color(c));
-
-        // window.colorCount =
-        //     window.colorCount >= 1.0 ? 0.0 : (window.colorCount += 0.01);
-
         grid.geometry.verticesNeedUpdate = true;
         grid.geometry.colorsNeedUpdate = true;
         for (let i = 0; i < gridVerticesArray.length; i++) {
@@ -83,6 +78,7 @@ const renderScene = domNode => {
 
         scene.fog = new THREE.FogExp2(window.sceneColor, 0.0008);
         renderer.setClearColor(new THREE.Color(window.sceneColor), 0.0);
+        grid.material.color = new THREE.Color(window.planeColor);
 
         renderer.render(scene, camera);
     };

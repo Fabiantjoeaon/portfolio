@@ -8,9 +8,9 @@ import interpolate from 'color-interpolate';
 import Header from '../components/Header';
 import renderScene from './scene';
 import scrollTo from '../utils/scrollTo';
-import {saturateZeroOne, saturatePercentage} from '../utils/saturateValue';
+import { saturateZeroOne, saturatePercentage } from '../utils/saturateValue';
 import '../../node_modules/font-awesome/css/font-awesome.css';
-import 'prism-themes/themes/prism-duotone-dark.css';
+import 'prism-themes/themes/prism-duotone-sea.css';
 
 const Container = styled.div`
     z-index: -1;
@@ -42,11 +42,9 @@ const Scene = styled.div`
 const ContentInner = styled.div`
     max-width: 960px !important;
     margin: 0 auto;
-    
-    
+
     padding: 0px 1.0875rem 1.45rem;
-    
-    
+
     @media only screen and (max-width: 1065px) and (min-width: 800px) {
         padding: 0px 5.0875rem 1.45rem;
     }
@@ -136,10 +134,20 @@ injectGlobal`
         
     } */
     .language-javascript {
-        border: 1px solid #ff9e69;
+        border: 1px solid #a5abff;
     }
     code[class*="language-"], pre[class*="language-"] {
-        background: rgba(255,255,255, 0.9) !important;
+        color: #fff !important;
+        background: rgba(10,10,10, 0.8) !important;
+    }
+    .interpolation {
+        color: #fff;
+    }
+    pre {
+        code {
+            overflow-x: scroll;
+            color: #fff !important;
+        }
     }
     .comment {
         color: #909090 !important;
@@ -159,11 +167,12 @@ class TemplateWrapper extends Component {
     componentDidMount() {
         renderScene(findDOMNode(this.root));
         const { clientHeight } = findDOMNode(this.header);
-        const colorMap = interpolate(['#fff', '#a5abff']);
+        const sceneColorMap = interpolate(['#fff', '#a5abff']);
+        const planeColorMap = interpolate(['#a5abff', '#fff']);
 
         window.addEventListener('scroll', e => {
             this.shouldSetHeaderBackground(clientHeight);
-            this.updateSceneFogColor(colorMap);
+            this.updateSceneColorInterpolations(sceneColorMap, planeColorMap);
         });
         window.addEventListener('resize', e => {
             this.shouldSetHeaderBackground(clientHeight);
@@ -190,15 +199,21 @@ class TemplateWrapper extends Component {
             this.setState({ scrolledPastHeader });
     }
 
-    updateSceneFogColor(colorMap) {
-        const {body, documentElement} = document;
-        const height = Math.max( body.scrollHeight, body.offsetHeight, 
-            documentElement.clientHeight, documentElement.scrollHeight, documentElement.offsetHeight );
-        
+    updateSceneColorInterpolations(sceneColorMap, planeColorMap) {
+        const { body, documentElement } = document;
+        const height = Math.max(
+            body.scrollHeight,
+            body.offsetHeight,
+            documentElement.clientHeight,
+            documentElement.scrollHeight,
+            documentElement.offsetHeight
+        );
+
         const scrollTop = documentElement.scrollTop || body.scrollTop;
-        console.log(colorMap(saturateZeroOne(0, height, scrollTop)))
-        window.sceneColor = colorMap(saturateZeroOne(0, height, scrollTop));
-        
+
+        const val = saturateZeroOne(0, height, scrollTop);
+        window.sceneColor = sceneColorMap(val);
+        window.planeColor = planeColorMap(val);
     }
 
     render() {
@@ -221,13 +236,7 @@ class TemplateWrapper extends Component {
                         isHome={location.pathname === '/'}
                         scrolledPastHeader={scrolledPastHeader}
                     />
-                    <ContentInner
-                        style={{
-                      
-                        }}
-                    >
-                        {children()}
-                    </ContentInner>
+                    <ContentInner style={{}}>{children()}</ContentInner>
                 </Content>
             </Container>
         );
