@@ -8,7 +8,8 @@ var window = window
           innerWidth: 0,
           colorCount: 0,
           sceneColor: '#fff',
-          planeColor: '#fff'
+          planeColor: '#fff',
+          addEventListener: function(...args) {}
       };
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
