@@ -53,7 +53,6 @@ const BlogFooter = styled.div`
     }
 `;
 
-
 const TitleWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -65,6 +64,24 @@ const TitleWrapper = styled.div`
         // align-self: center;
     }
 `;
+
+const StyledTools = styled.div`
+    display: flex;
+    width: 100%;
+
+    justify-content: space-around;
+    margin: 30px 0px 50px;
+    span {
+        text-transform: uppercase;
+        background-color: #000;
+        letter-spacing: 1px;
+        padding: 10px 15px;
+        color: #fff;
+    }
+`;
+const Tools = ({ tools }) => (
+    <StyledTools>{tools.map(t => <span>{t}</span>)}</StyledTools>
+);
 
 export default function Template({ data, transition, ...props }) {
     if (data) {
@@ -85,6 +102,9 @@ export default function Template({ data, transition, ...props }) {
                     <AnimatedContent
                         className={`blog-post-content ${transition.status}`}
                     >
+                        {frontmatter.tools && (
+                            <Tools tools={frontmatter.tools} />
+                        )}
                         <div dangerouslySetInnerHTML={{ __html: html }} />
                         <BlogFooter>
                             <p>
@@ -115,6 +135,7 @@ export const pageQuery = graphql`
             frontmatter {
                 path
                 title
+                tools
             }
         }
     }

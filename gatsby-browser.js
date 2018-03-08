@@ -5,7 +5,7 @@
  */
 
 import React, { Component, createElement } from 'react';
-import { Transition } from 'react-transition-group';
+import Transition from 'react-transition-group/Transition';
 import createHistory from 'history/createBrowserHistory';
 
 import getTransitionStyle from './src/utils/getTransitionStyle';

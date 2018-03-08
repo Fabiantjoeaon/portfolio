@@ -5,12 +5,17 @@ title: "Web synthesizer with WebGL visualisation"
 attachments:
   - "./synth.mp4"
   - "./synth.JPG"
+tools: 
+    - "React"
+    - "Redux"
+    - "Three.js"
+    - "Tone.js"
 ---
 
 <strong>This project is not finished yet, but you can already play around with it <a target="_blank" href="https://fabiantjoeaon.github.io/sound-shapes">here</a>.</strong>
 <br><br>
 This is a spare-time project of mine, where I explored the possibilities of visualising synthesizer parameters with WebGL.
-The synthezier itself is build using React and Redux. 
+The synthezier itself is build using React and Redux.
 
 <video muted autoplay loop>
   <source src="./synth.mp4" type="video/mp4">
@@ -18,14 +23,9 @@ The synthezier itself is build using React and Redux.
   Your browser does not support the video tag.
 </video>
 
-
-
-
 I've used CSS Grid and D3.js to realise a complex layout that resembles a real life synthesizer, which is based on my Korg Minilogue I have at home.
 <img src="./synth.JPG" />
 Due to the modular nature of synthesizers, I tried utilising the component based style of React to its full potential, making every module a seperate component, which I could easily position in my grid by passing it a set of columns and rows. Here is an example of a module:
-
-
 
 ```javascript
 <Oscillator
@@ -43,7 +43,6 @@ Due to the modular nature of synthesizers, I tried utilising the component based
 One reason I have used Redux for this project is not only to manage a large set of state, but also to extract my state to a higher level, so that I can seperate my WebGL code, and subscribe to store updates in WebGL, so that I can visualize something whenever a parameter is changed.
 
 <br>
-
 
 Note the settings prop in the code block above. By abstracting my configuration for my synth parameters to a custom object, my min and max values can be edited with ease:
 
@@ -78,6 +77,7 @@ Note the settings prop in the code block above. By abstracting my configuration 
     },
     // and so on...
 ```
+
 <br/>
 Relevant blog posts:
 <br/>
@@ -89,8 +89,3 @@ Relevant blog posts:
 <div>
     <a href="/blog/building-my-web-synth--handling-octaves"> Handling octaves with Redux </a>
 </div>
-
-
-
-
-
