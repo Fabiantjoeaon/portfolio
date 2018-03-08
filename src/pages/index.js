@@ -288,16 +288,7 @@ class IndexPage extends Component {
                             To project &rarr;
                         </StyledLink>
                     </ProjectWrapper>
-                    <ProjectWrapper
-                        title="Internship portfolio"
-                        activeId={this.state.activeId}
-                        id={4}
-                        setActiveId={setActiveId}
-                    >
-                        <StyledLink to="/internship-portfolio/maintaining-readability">
-                            Maintaining readability
-                        </StyledLink>
-                    </ProjectWrapper>
+
                     <ProjectWrapper
                         title="WebGL Experiments"
                         activeId={this.state.activeId}
@@ -305,14 +296,20 @@ class IndexPage extends Component {
                         setActiveId={setActiveId}
                     >
                         <a
-                            style={{ display: 'block' }}
+                            style={{
+                                display: 'block',
+                                'text-decoration': 'none'
+                            }}
                             target="_blank"
                             href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
                         >
                             Animated perlin noise shader{' '}
                         </a>
                         <a
-                            style={{ display: 'block' }}
+                            style={{
+                                display: 'block',
+                                'text-decoration': 'none'
+                            }}
                             target="_blank"
                             href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"
                         >

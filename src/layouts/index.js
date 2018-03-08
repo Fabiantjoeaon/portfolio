@@ -114,7 +114,7 @@ injectGlobal`
     }
     img, video {
         width: 100%;
-        border: 40px solid transparent;
+        
         /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
         border-image-slice: 1; */
         margin: 10px 0px;

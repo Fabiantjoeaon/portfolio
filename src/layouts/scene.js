@@ -62,7 +62,6 @@ const renderScene = domNode => {
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
     });
-    console.log(grid.material.color);
 
     const render = () => {
         grid.geometry.verticesNeedUpdate = true;

@@ -35,6 +35,23 @@ const AnimatedContent = styled(Content)`
             }
         }
     }
+
+    blockquote {
+        border-left: 3px solid rgb(30, 30, 30);
+        margin-left: 0px;
+        padding-left: 1.45rem;
+        p {
+            font-family: 'Chivo', sans-serif;
+            font-style: italic;
+
+            font-weight: 100;
+            color: rgb(30, 30, 30);
+        }
+    }
+
+    li {
+        line-height: 2em;
+    }
 `;
 
 const BlogFooter = styled.div`
@@ -48,7 +65,7 @@ const BlogFooter = styled.div`
     p {
         align-self: center;
         margin: 0px;
-        font-weight: 900;
+        font-weight: 400;
         font-style: italic;
     }
 `;
@@ -67,20 +84,37 @@ const TitleWrapper = styled.div`
 
 const StyledTools = styled.div`
     display: flex;
-    width: 100%;
+    width: 80%;
+    flex-flow: row wrap;
 
     justify-content: space-around;
-    margin: 30px 0px 50px;
+    margin: 50px auto 50px auto;
     span {
         text-transform: uppercase;
-        background-color: #000;
+        // background-color: #000;
         letter-spacing: 1px;
         padding: 10px 15px;
-        color: #fff;
+        color: #000;
+        font-size: 0.9em;
+        font-style: italic;
+        border: 1px solid #000;
+        margin: 10px 0px;
+    }
+
+    @media only screen and (max-width: 910px) {
+        width: 100%;
+        justify-content: center;
+        margin: 0px auto 50px auto;
+
+        span {
+            margin: 10px;
+            font-size: 0.7em;
+        }
     }
 `;
+
 const Tools = ({ tools }) => (
-    <StyledTools>{tools.map(t => <span>{t}</span>)}</StyledTools>
+    <StyledTools>{tools.map(t => <span key={t}>{t}</span>)}</StyledTools>
 );
 
 export default function Template({ data, transition, ...props }) {

@@ -1,10 +1,8 @@
-import React, {
-    Component
-} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-const Navigation = styled.header `
+const Navigation = styled.header`
     height: 70px;
     color: #fff;
     display: flex;
@@ -54,15 +52,14 @@ const Navigation = styled.header `
     }
 `;
 
-const Name = styled(Link)
-`
+const Name = styled(Link)`
     align-self: center;
     text-decoration: none;
     cursor: pointer;
     margin-left: 40px;
 `;
 
-const Icons = styled.div `
+const Icons = styled.div`
     margin-right: 40px;
     align-self: center;
     display: flex;
@@ -84,7 +81,7 @@ const Icons = styled.div `
     }
 `;
 
-const IconWrapper = styled.div `
+const IconWrapper = styled.div`
     font-size: 1.2em;
 
     &:hover {
@@ -93,7 +90,7 @@ const IconWrapper = styled.div `
     }
 `;
 
-const TransitionText = styled.span `
+const TransitionText = styled.span`
     opacity: 1;
     transition: all 0.3s ease-out;
     // transition-delay: 1.4s;
@@ -114,70 +111,44 @@ const TransitionText = styled.span `
     }
 `;
 
-const Header = ({
-    isHome,
-    setHeaderRef,
-    scrolledPastHeader
-}) => {
-    return ( <
-        Navigation ref = {
-            setHeaderRef
-        }
-        className = {
-            scrolledPastHeader ? 'active' : ''
-        } >
-        <
-        Name to = "/" >
-        <
-        TransitionText className = {
-            status
-        } > {
-            isHome ? 'Fabian Tjoe-A-On' : 'Back to home'
-        } <
-        /TransitionText> <
-        /Name>
+const Header = ({ isHome, setHeaderRef, scrolledPastHeader }) => {
+    return (
+        <Navigation
+            ref={setHeaderRef}
+            className={scrolledPastHeader ? 'active' : ''}
+        >
+            <Name to="/">
+                <TransitionText className={status}>
+                    {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
+                </TransitionText>
+            </Name>
 
-        <
-        Icons >
-        <
-        a target = "_blank"
-        href = "https://github.com/fabiantjoeaon" >
-        <
-        IconWrapper >
-        <
-        i className = "fa fa-github" / >
-        <
-        /IconWrapper> <
-        /a> <
-        a target = "_blank"
-        href = "https://twitter.com/fabiantjoe_a_on" >
-        <
-        IconWrapper >
-        <
-        i className = "fa fa-twitter" / >
-        <
-        /IconWrapper> <
-        /a> <
-        a target = "_blank"
-        href = "https://www.linkedin.com/in/fabiantjoeaon/" >
-        <
-        IconWrapper >
-        <
-        i className = "fa fa-linkedin" / >
-        <
-        /IconWrapper> <
-        /a> <
-        a target = "_blank"
-        href = "mailto:fabiantjoeaon@gmail.com" >
-        <
-        IconWrapper >
-        <
-        i className = "fa fa-at" / >
-        <
-        /IconWrapper> <
-        /a> <
-        /Icons> <
-        /Navigation>
+            <Icons>
+                <a target="_blank" href="https://github.com/fabiantjoeaon">
+                    <IconWrapper>
+                        <i className="fa fa-github" />
+                    </IconWrapper>
+                </a>
+                <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
+                    <IconWrapper>
+                        <i className="fa fa-twitter" />
+                    </IconWrapper>
+                </a>
+                <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/fabiantjoeaon/"
+                >
+                    <IconWrapper>
+                        <i className="fa fa-linkedin" />
+                    </IconWrapper>
+                </a>
+                <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
+                    <IconWrapper>
+                        <i className="fa fa-at" />
+                    </IconWrapper>
+                </a>
+            </Icons>
+        </Navigation>
     );
 };
 

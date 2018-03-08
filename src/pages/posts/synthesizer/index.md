@@ -12,7 +12,7 @@ tools:
     - "Tone.js"
 ---
 
-<strong>This project is not finished yet, but you can already play around with it <a target="_blank" href="https://fabiantjoeaon.github.io/sound-shapes">here</a>.</strong>
+<strong>This project is not finished yet, but you can already play around with it <a target="_blank" href="https://fabiantjoeaon.github.io/sound-shapes">here</a>. (note: not suited for mobile, please visit on Desktop in the Chrome browser)</strong>
 <br><br>
 This is a spare-time project of mine, where I explored the possibilities of visualising synthesizer parameters with WebGL.
 The synthezier itself is build using React and Redux.
