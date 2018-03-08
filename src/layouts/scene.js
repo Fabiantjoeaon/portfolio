@@ -1,35 +1,24 @@
 import * as THREE from 'three';
 import interpolate from '../utils/colorInterpolate';
 
-var window = window
-    ? window
-    : {
-          innerHeight: 0,
-          innerWidth: 0,
-          colorCount: 0,
-          sceneColor: '#fff',
-          planeColor: '#fff',
-          addEventListener: function(...args) {}
-      };
-let windowHalfX = window.innerWidth / 2;
-let windowHalfY = window.innerHeight / 2;
-let mouseX;
-let mouseY;
+const renderScene = (domNode, window) => {
+    let windowHalfX = window.innerWidth / 2;
+    let windowHalfY = window.innerHeight / 2;
+    let mouseX;
+    let mouseY;
 
-const colorMap = interpolate(['#f5f5f5', '#fff']);
-const gridVerticesArray = [];
-const gridAngles = [];
+    const colorMap = interpolate(['#f5f5f5', '#fff']);
+    const gridVerticesArray = [];
+    const gridAngles = [];
 
-const gridSpeed = 0.01;
-const gridRange = 400;
+    const gridSpeed = 0.01;
+    const gridRange = 400;
 
-// const sceneColor = new THREE.Color('#a5abff');
+    // const sceneColor = new THREE.Color('#a5abff');
 
-const planeColor = new THREE.Color('#a5abff');
+    const planeColor = new THREE.Color('#a5abff');
 
-window.colorCount = 0.0;
-
-const renderScene = domNode => {
+    window.colorCount = 0.0;
     const camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,

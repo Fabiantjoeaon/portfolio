@@ -165,7 +165,7 @@ class TemplateWrapper extends Component {
     }
 
     componentDidMount() {
-        renderScene(findDOMNode(this.root));
+        renderScene(findDOMNode(this.root), window);
         const { clientHeight } = findDOMNode(this.header);
         const sceneColorMap = interpolate(['#fff', '#a5abff']);
         const planeColorMap = interpolate(['#a5abff', '#fff']);
