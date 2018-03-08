@@ -124,17 +124,21 @@ export default function Template({ data, transition, ...props }) {
 
         return (
             <Wrapper
-                className={`blog-post-container ${transition.status}`}
+                className={`blog-post-container ${transition &&
+                    transition.status}`}
                 style={transition && transition.style}
             >
                 <div className="blog-post">
                     <TitleWrapper>
-                        <AnimatedTitle className={transition.status}>
+                        <AnimatedTitle
+                            className={transition && transition.status}
+                        >
                             {frontmatter.title}
                         </AnimatedTitle>
                     </TitleWrapper>
                     <AnimatedContent
-                        className={`blog-post-content ${transition.status}`}
+                        className={`blog-post-content ${transition &&
+                            transition.status}`}
                     >
                         {frontmatter.tools && (
                             <Tools tools={frontmatter.tools} />
@@ -154,7 +158,7 @@ export default function Template({ data, transition, ...props }) {
 
     return (
         <Wrapper
-            className={`blog-post-container ${transition.status}`}
+            className={`blog-post-container ${transition && transition.status}`}
             style={transition && transition.style}
         >
             <h1>Whoops! Something went wrong!</h1>

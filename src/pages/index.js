@@ -209,12 +209,14 @@ class IndexPage extends Component {
         return (
             <IndexContainer
                 style={transition && transition.style}
-                className={transition.status}
+                className={transition && transition.status}
             >
                 <IndexTitleWrapper>
-                    <IndexTitle className={transition.status}>Sup?</IndexTitle>{' '}
+                    <IndexTitle className={transition && transition.status}>
+                        Sup?
+                    </IndexTitle>{' '}
                 </IndexTitleWrapper>
-                <Content className={transition.status}>
+                <Content className={transition && transition.status}>
                     <IndexContent>
                         <p>
                             I'm Fabian Tjoe-A-On, a 22 year old full-stack(web)

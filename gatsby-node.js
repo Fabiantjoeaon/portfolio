@@ -42,3 +42,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         return;
     });
 };
+
+// exports.modifyWebpackConfig = ({ config, stage }) => {
+//     if (stage === 'build-html') {
+//         config.loader('null', {
+//             test: '/src/layouts/scene.js',
+//             loader: 'null-loader'
+//         });
+//     }
+// };

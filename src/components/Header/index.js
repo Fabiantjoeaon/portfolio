@@ -118,7 +118,7 @@ const Header = ({ isHome, setHeaderRef, scrolledPastHeader }) => {
             className={scrolledPastHeader ? 'active' : ''}
         >
             <Name to="/">
-                <TransitionText className={status}>
+                <TransitionText>
                     {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
                 </TransitionText>
             </Name>

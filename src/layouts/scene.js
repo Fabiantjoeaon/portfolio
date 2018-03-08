@@ -1,6 +1,15 @@
 import * as THREE from 'three';
 import interpolate from '../utils/colorInterpolate';
 
+var window = window
+    ? window
+    : {
+          innerHeight: 0,
+          innerWidth: 0,
+          colorCount: 0,
+          sceneColor: '#fff',
+          planeColor: '#fff'
+      };
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 let mouseX;
