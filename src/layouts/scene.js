@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import interpolate from 'color-interpolate';
+import interpolate from '../utils/colorInterpolate';
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;

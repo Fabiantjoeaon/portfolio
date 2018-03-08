@@ -3,10 +3,10 @@ import { findDOMNode } from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import interpolate from 'color-interpolate';
 
 import Header from '../components/Header';
 import renderScene from './scene';
+import interpolate from '../utils/colorInterpolate';
 import scrollTo from '../utils/scrollTo';
 import { saturateZeroOne, saturatePercentage } from '../utils/saturateValue';
 import '../../node_modules/font-awesome/css/font-awesome.css';
