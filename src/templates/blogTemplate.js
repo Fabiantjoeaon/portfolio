@@ -91,7 +91,7 @@ const StyledTools = styled.div`
     margin: 50px auto 50px auto;
     span {
         text-transform: uppercase;
-        // background-color: #000;
+        background-color: #fff;
         letter-spacing: 1px;
         padding: 10px 15px;
         color: #000;
