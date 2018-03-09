@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 import styled from 'styled-components';
-import Link, { navigateTo } from 'gatsby-link';
+import Link, { navigateTo, withPrefix } from 'gatsby-link';
 
 import AnimatedTitle from '../components/styled/AnimatedTitle';
 import Content from '../components/styled/Content';
@@ -222,7 +222,7 @@ class IndexPage extends Component {
                             passion in trying to find ways to combine audio with
                             code, which is in most cases WebGL. You can download
                             my resume&nbsp;
-                            <a href="/static/resume.pdf" download>
+                            <a href={withPrefix('/static/resume.pdf')} download>
                                 here.
                             </a>
                             <br />
