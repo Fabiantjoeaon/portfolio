@@ -58,7 +58,7 @@ video {
 
     /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
     border-image-slice: 1; */
-    margin: 10px 0px;
+    margin: 30px 0px 50px;
 }
 
 @media (max-width: 900px) {
@@ -112,5 +112,7 @@ pre code {
 }
 
 .gatsby-resp-image-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
     max-width: 100% !important;
 }

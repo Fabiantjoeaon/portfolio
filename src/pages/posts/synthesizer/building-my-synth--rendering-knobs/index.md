@@ -11,7 +11,9 @@ attachments:
 ## Banana / gorilla problem
 
 A decent synthesizer with more than 5 modules offers almost infinite possibilities to shape a sound to your liking, which you can achieved by using a complex interface of its own, with mostly knobs, sliders, and switches.
+
 <img src="./synth.JPG" />
+
 Compared to a user interface on the web, most controls for a synthesizer are not very common. Unlike sliders and switches (which can be easily created through radio buttons), knobs are not so common that they occupate a space in Web UI, and have a custom HTML element. Even though their behaviour is comparable to a slider, I figured I had to create one myself to fully suit the versatility I had in mind when creating a synthesizer interface.
 
 I could use a pre-existing solution to a knob element, but I'm not a big fan of pre-made interface libraries, as I think it introduces a form of the Banana / Gorilla problem, which, in its turn, limits you to customizing interface elements to truly suit your design. Though the wheel shouldn't be reinvented, I think when you want to create something that stands out on the web, your options in pre-existing interface libraries are limited, unless you build something reusable by yourself.
