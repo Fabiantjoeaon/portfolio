@@ -11,7 +11,7 @@ const IndexContainer = styled.div``;
 const IndexContent = styled.div`
     // min-height: 50vh;
     margin-top: 150px;
-    
+
     p {
         margin-bottom: 250px;
     }
@@ -21,10 +21,6 @@ const IndexContent = styled.div`
             margin-bottom: 150px;
         }
     }
-
-    // ${IndexTitleWrapper} {
-    //     margin-top: 50px;
-    // }
 `;
 
 const IndexTitleWrapper = styled.div`
@@ -225,7 +221,7 @@ class IndexPage extends Component {
                             functional interfaces and web-apps, I also find my
                             passion in trying to find ways to combine audio with
                             code, which is in most cases WebGL. You can download
-                            my resume
+                            my resume&nbsp;
                             <a href="/static/resume.pdf" download>
                                 here.
                             </a>
@@ -300,7 +296,7 @@ class IndexPage extends Component {
                         <a
                             style={{
                                 display: 'block',
-                                'text-decoration': 'none'
+                                textDecoration: 'none'
                             }}
                             target="_blank"
                             href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
@@ -310,7 +306,7 @@ class IndexPage extends Component {
                         <a
                             style={{
                                 display: 'block',
-                                'text-decoration': 'none'
+                                textDecoration: 'none'
                             }}
                             target="_blank"
                             href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"

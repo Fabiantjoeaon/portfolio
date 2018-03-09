@@ -17,7 +17,6 @@ const Container = styled.div`
     z-index: -1;
     // HINT: header height margin
     margin-top: 100px;
-    padding-bottom: 70px;
 `;
 
 const Content = styled.div`
@@ -62,7 +61,8 @@ const ContentInner = styled.div`
 class TemplateWrapper extends Component {
     state = {
         isFirstVisit: false,
-        scrolledPastHeader: false
+        scrolledPastHeader: false,
+        isSmallScreen: false
     };
 
     constructor(props) {
@@ -81,12 +81,25 @@ class TemplateWrapper extends Component {
         });
         window.addEventListener('resize', e => {
             this.shouldSetHeaderBackground(clientHeight);
+            this.detectSmallScreen();
         });
+        this.updateSceneColorInterpolations(sceneColorMap, planeColorMap);
+        this.shouldSetHeaderBackground(clientHeight);
+        this.detectSmallScreen();
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.shouldSetHeaderBackground);
         window.removeEventListener('resize', this.shouldSetHeaderBackground);
+    }
+
+    detectSmallScreen() {
+        const matches = window.matchMedia('(max-width: 992px)').matches;
+
+        if (!this.state.isSmallScreen && matches)
+            this.setState({ isSmallScreen: true });
+        if (this.state.isSmallScreen && !matches)
+            this.setState({ isSmallScreen: false });
     }
 
     setHeaderRef = header => {
@@ -123,7 +136,7 @@ class TemplateWrapper extends Component {
 
     render() {
         const { children, location } = this.props;
-        const { scrolledPastHeader } = this.state;
+        const { scrolledPastHeader, isSmallScreen } = this.state;
 
         return (
             <Container>
@@ -140,6 +153,7 @@ class TemplateWrapper extends Component {
                         setHeaderRef={this.setHeaderRef}
                         isHome={location.pathname === '/'}
                         scrolledPastHeader={scrolledPastHeader}
+                        isSmallScreen={isSmallScreen}
                     />
                     <ContentInner style={{}}>{children()}</ContentInner>
                 </Content>

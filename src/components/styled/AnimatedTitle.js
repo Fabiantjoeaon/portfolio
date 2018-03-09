@@ -12,7 +12,7 @@ const AnimatedTitle = styled.span`
     font-weight: 700;
     display: inline-block;
     -webkit-box-decoration-break: clone;
-    // opacity: 1;
+
     padding: 25px 50px;
     transition: all 0.8s cubic-bezier(0.14, 1, 0.34, 1);
 
@@ -73,7 +73,7 @@ const AnimatedTitle = styled.span`
         }
     }
 
-    @media only screen and (max-device-width: 667px) { 
+    @media only screen and (max-device-width: 667px) {
         width: 80%;
         font-size: 1.4em;
         padding: 15px 20px;

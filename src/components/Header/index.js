@@ -45,6 +45,7 @@ const Navigation = styled.header`
             height: 100%;
         }
 
+        strong,
         span,
         i {
             color: #fff !important;
@@ -56,11 +57,11 @@ const Name = styled(Link)`
     align-self: center;
     text-decoration: none;
     cursor: pointer;
-    margin-left: 40px;
+    margin-left: 45px;
 `;
 
 const Icons = styled.div`
-    margin-right: 40px;
+    margin-right: 45px;
     align-self: center;
     display: flex;
     width: 150px;
@@ -73,7 +74,7 @@ const Icons = styled.div`
     }
 
     @media (max-width: 800px) {
-        width: 110px;
+        width: 140px;
 
         ${IconWrapper} {
             font-size: 1em;
@@ -90,66 +91,54 @@ const IconWrapper = styled.div`
     }
 `;
 
-const TransitionText = styled.span`
-    opacity: 1;
-    transition: all 0.3s ease-out;
-    // transition-delay: 1.4s;
-    &.entering {
-        opacity: 1;
-    }
-    &.entered {
-        opacity: 1;
-    }
+const Header = ({
+    isHome,
+    setHeaderRef,
+    scrolledPastHeader,
+    isSmallScreen
+}) => (
+    <Navigation
+        ref={setHeaderRef}
+        className={scrolledPastHeader ? 'active' : ''}
+    >
+        <Name to="/">
+            {isHome ? (
+                isSmallScreen ? (
+                    <strong>F&nbsp;&nbsp;T</strong>
+                ) : (
+                    <span>Fabian Tjoe-A-On</span>
+                )
+            ) : (
+                <span>Home</span>
+            )}
+        </Name>
 
-    &.exiting {
-        opacity: 0;
-        transition-delay: 0s;
-    }
-    &.exited {
-        opacity: 1;
-        transition-delay: 0s;
-    }
-`;
-
-const Header = ({ isHome, setHeaderRef, scrolledPastHeader }) => {
-    return (
-        <Navigation
-            ref={setHeaderRef}
-            className={scrolledPastHeader ? 'active' : ''}
-        >
-            <Name to="/">
-                <TransitionText>
-                    {isHome ? 'Fabian Tjoe-A-On' : 'Back to home'}
-                </TransitionText>
-            </Name>
-
-            <Icons>
-                <a target="_blank" href="https://github.com/fabiantjoeaon">
-                    <IconWrapper>
-                        <i className="fa fa-github" />
-                    </IconWrapper>
-                </a>
-                <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
-                    <IconWrapper>
-                        <i className="fa fa-twitter" />
-                    </IconWrapper>
-                </a>
-                <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/fabiantjoeaon/"
-                >
-                    <IconWrapper>
-                        <i className="fa fa-linkedin" />
-                    </IconWrapper>
-                </a>
-                <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
-                    <IconWrapper>
-                        <i className="fa fa-at" />
-                    </IconWrapper>
-                </a>
-            </Icons>
-        </Navigation>
-    );
-};
+        <Icons>
+            <a target="_blank" href="https://github.com/fabiantjoeaon">
+                <IconWrapper>
+                    <i className="fa fa-github" />
+                </IconWrapper>
+            </a>
+            <a target="_blank" href="https://twitter.com/fabiantjoe_a_on">
+                <IconWrapper>
+                    <i className="fa fa-twitter" />
+                </IconWrapper>
+            </a>
+            <a
+                target="_blank"
+                href="https://www.linkedin.com/in/fabiantjoeaon/"
+            >
+                <IconWrapper>
+                    <i className="fa fa-linkedin" />
+                </IconWrapper>
+            </a>
+            <a target="_blank" href="mailto:fabiantjoeaon@gmail.com">
+                <IconWrapper>
+                    <i className="fa fa-at" />
+                </IconWrapper>
+            </a>
+        </Icons>
+    </Navigation>
+);
 
 export default Header;

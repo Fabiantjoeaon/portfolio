@@ -80,6 +80,7 @@ code[class*='language-'],
 pre[class*='language-'] {
     color: #fff !important;
     background: rgba(20, 20, 20, 0.8) !important;
+    word-wrap: normal !important;
 }
 .interpolation {
     color: #fff;
@@ -91,4 +92,21 @@ pre code {
 
 .comment {
     color: #909090 !important;
+}
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

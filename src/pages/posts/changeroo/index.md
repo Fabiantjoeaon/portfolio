@@ -15,7 +15,7 @@ Changeroo was my first mid-sized project, though never worked on a small to medi
 > Theory of Change (ToC) is a specific type of methodology for planning, participation, and evaluation that is used in the philanthropy, not-for-profit and government sectors to promote social change. Theory of Change defines long-term goals and then maps backward to identify necessary preconditions.
 
 <br>
-<iframe src="https://player.vimeo.com/video/229111344" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div class='embed-container'><iframe src="https://player.vimeo.com/video/229111344" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 <br>
 <br>
 
