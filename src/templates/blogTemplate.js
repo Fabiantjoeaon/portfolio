@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import WebFont from 'webfontloader';
 
 import AnimatedTitle from '../components/styled/AnimatedTitle';
 import Content from '../components/styled/Content';
@@ -116,6 +117,12 @@ const StyledTools = styled.div`
 const Tools = ({ tools }) => (
     <StyledTools>{tools.map(t => <span key={t}>{t}</span>)}</StyledTools>
 );
+
+WebFont.load({
+    google: {
+      families: ['Asul', 'sans-serif']
+    }
+  });
 
 export default function Template({ data, transition, ...props }) {
     if (data) {

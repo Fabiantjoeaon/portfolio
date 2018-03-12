@@ -3,6 +3,7 @@ import { findDOMNode } from 'react-dom';
 import styled, { injectGlobal } from 'styled-components';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import WebFont from 'webfontloader';
 
 import Header from '../components/Header';
 import renderScene from './scene';
@@ -183,9 +184,11 @@ const ContentInner = styled.div`
     // }
 `;
 
-// injectGlobal`
-
-// `;
+WebFont.load({
+  google: {
+    families: ['Chivo\:100,100i,400,400i,700i', 'sans-serif']
+  }
+});
 
 class TemplateWrapper extends Component {
     state = {
