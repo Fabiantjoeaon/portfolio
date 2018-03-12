@@ -1,6 +1,8 @@
 module.exports = {
     siteMetadata: {
-        title: "Fabian's portfolio"
+        title: "Fabian's portfolio",
+        siteURL: 'https://fabiantjoeaon.com',
+        themeColor: '#a5abff'
     },
     plugins: [
         'gatsby-plugin-react-helmet',
@@ -10,6 +12,7 @@ module.exports = {
                 pathToConfigModule: `src/utils/typography.js`
             }
         },
+        `gatsby-plugin-offline`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
