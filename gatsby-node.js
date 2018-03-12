@@ -43,11 +43,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     });
 };
 
-// exports.modifyWebpackConfig = ({ config, stage }) => {
-//     if (stage === 'build-html') {
-//         config.loader('null', {
-//             test: '/src/layouts/scene.js',
-//             loader: 'null-loader'
-//         });
-//     }
-// };
+exports.modifyWebpackConfig = ({ config, stage }) => {
+    if (stage === 'build-html') {
+        config.loader('null', {
+            test: /webfontloader/,
+            loader: 'null-loader'
+        });
+    }
+};
