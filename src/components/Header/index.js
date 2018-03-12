@@ -96,6 +96,14 @@ const Icon = styled.div`
             transition: fill 0.3s ease-out;
         }
     }
+
+    @media (max-width: 800px) {
+        width: 16px;
+        height: 16px;
+
+        
+        
+    }
 `;
 
 const Header = ({

@@ -1,12 +1,80 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
+import styled, {injectGlobal} from 'styled-components';
 import WebFont from 'webfontloader';
 
 import AnimatedTitle from '../components/styled/AnimatedTitle';
 import Content from '../components/styled/Content';
 
-const Wrapper = styled.div`
-    // TODO: Write custom transition status
+injectGlobal`
+tt,
+code {
+    background-color: hsla(0, 0%, 0%, 0.04);
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+pre code {
+    background: none;
+    line-height: 1.42;
+}
+
+code:before,
+code:after,
+tt:before,
+tt:after {
+    letter-spacing: -0.2em;
+    content: ' ';
+}
+
+pre code:before,
+pre code:after,
+pre tt:before,
+pre tt:after {
+    content: '';
+}
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+pre code {
+    overflow-x: scroll;
+    color: #fff !important;
+}
+
+.language-javascript {
+    border: 1px solid #a5abff;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+    color: #fff !important;
+    background: rgba(20, 20, 20, 0.8) !important;
+    word-wrap: normal !important;
+}
+img,
+video {
+    width: 100%;
+    /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
+    border-image-slice: 1; */
+    margin: 30px 0px 50px;
+}
 `;
 
 const AnimatedContent = styled(Content)`
@@ -134,7 +202,7 @@ export default class Template extends Component {
             const { frontmatter, html } = markdownRemark;
 
             return (
-                <Wrapper
+                <div
                     className={`blog-post-container ${transition &&
                         transition.status}`}
                     style={transition && transition.style}
@@ -163,7 +231,7 @@ export default class Template extends Component {
                             </BlogFooter>
                         </AnimatedContent>
                     </div>
-                </Wrapper>
+                </div>
             );
         }
 

@@ -33,36 +33,6 @@ body.exiting {
     -webkit-font-smoothing: antialiased;
 }
 
-tt,
-code {
-    background-color: hsla(0, 0%, 0%, 0.04);
-    border-radius: 3px;
-    font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
-    padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-}
-
-pre code {
-    background: none;
-    line-height: 1.42;
-}
-
-code:before,
-code:after,
-tt:before,
-tt:after {
-    letter-spacing: -0.2em;
-    content: ' ';
-}
-
-pre code:before,
-pre code:after,
-pre tt:before,
-pre tt:after {
-    content: '';
-}
-
 iframe {
     border: 0px !important;
 }
@@ -71,14 +41,6 @@ iframe {
     html {
         font-size: 100%;
     }
-}
-
-img,
-video {
-    width: 100%;
-    /* border-image: linear-gradient(to bottom right, #fff 0%, #bfacfc 100%);
-    border-image-slice: 1; */
-    margin: 30px 0px 50px;
 }
 
 @media (max-width: 900px) {
@@ -93,47 +55,8 @@ p {
     line-height: 2em;
 }
 
-.language-javascript {
-    border: 1px solid #a5abff;
-}
-
-code[class*='language-'],
-pre[class*='language-'] {
-    color: #fff !important;
-    background: rgba(20, 20, 20, 0.8) !important;
-    word-wrap: normal !important;
-}
-
-.interpolation {
-    color: #fff;
-}
-
-pre code {
-    overflow-x: scroll;
-    color: #fff !important;
-}
-
 .comment {
     color: #909090 !important;
-}
-
-.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    height: auto;
-}
-
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .gatsby-resp-image-wrapper {
@@ -145,7 +68,7 @@ pre code {
 
 const Container = styled.div`
     z-index: -1;
-    // HINT: header height margin
+    
     margin-top: 100px;
 `;
 
@@ -178,10 +101,6 @@ const ContentInner = styled.div`
     @media only screen and (max-width: 1065px) and (min-width: 800px) {
         padding: 0px 5.0875rem 1.45rem;
     }
-
-    // @media (max-width: 800px) {
-    //     padding: 0px 1.0875rem 1.45rem;
-    // }
 `;
 
 class TemplateWrapper extends Component {
@@ -203,7 +122,7 @@ class TemplateWrapper extends Component {
         });
 
         renderScene(findDOMNode(this.root), window);
-        
+
         const { clientHeight } = findDOMNode(this.header);
         const sceneColorMap = interpolate(['#fff', '#a5abff']);
         const planeColorMap = interpolate(['#a5abff', '#fff']);
