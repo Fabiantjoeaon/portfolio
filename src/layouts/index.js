@@ -11,6 +11,7 @@ import interpolate from '../utils/colorInterpolate';
 import scrollTo from '../utils/scrollTo';
 import { saturateZeroOne, saturatePercentage } from '../utils/saturateValue';
 import 'prism-themes/themes/prism-atom-dark.css';
+import 'typeface-chivo';
 
 injectGlobal`
 body {
@@ -105,11 +106,11 @@ class TemplateWrapper extends Component {
     }
 
     componentDidMount() {
-        WebFont.load({
-            google: {
-              families: ['Chivo\:100,100i,400,400i,700i', 'sans-serif']
-            }
-        });
+        // WebFont.load({
+        //     google: {
+        //       families: ['Chivo\:100,100i,400,400i,700i', 'sans-serif']
+        //     }
+        // });
 
         renderScene(findDOMNode(this.root), window);
 
@@ -199,7 +200,7 @@ class TemplateWrapper extends Component {
                         scrolledPastHeader={scrolledPastHeader}
                         isSmallScreen={isSmallScreen}
                     />
-                    <ContentInner style={{}}>{children()}</ContentInner>
+                    <ContentInner>{children()}</ContentInner>
                 </Content>
             </Container>
         );
