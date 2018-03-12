@@ -316,13 +316,23 @@ class IndexPage extends Component {
                             marching cubes{' '}
                         </a>{' '}
                     </ProjectWrapper>
+                    <ProjectWrapper
+                        title="Internship portfolio"
+                        activeId={this.state.activeId}
+                        id={4}
+                        setActiveId={setActiveId}
+                    >
+                        <StyledLink to="/internship-portfolio/optimizing-to-pwa">
+                            Optimizing my portfolio to a Progressive Web App
+                        </StyledLink>
+                    </ProjectWrapper>
                     <StyledProjectWrapper>
                         <StyledProjectTitle>Recordings</StyledProjectTitle>{' '}
                         <br />
                         <br />
-                            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameborder="0" ></iframe>
+                            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameBorder="0" ></iframe>
                         <br />
-                        <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Flate_night_session%2F" frameborder="0" ></iframe>
+                            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Flate_night_session%2F" frameBorder="0" ></iframe>
                         <br />
                     </StyledProjectWrapper>
                 </Content>{' '}

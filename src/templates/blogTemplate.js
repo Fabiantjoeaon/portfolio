@@ -144,6 +144,10 @@ const BlogFooter = styled.div`
         margin: 0px;
         font-weight: 400;
         font-style: italic;
+
+        @media (max-width: 1000px) {
+            padding-top: 20px;
+        }
     }
 `;
 
@@ -244,12 +248,12 @@ export default class Template extends Component {
         }
 
         return (
-            <Wrapper
+            <div
                 className={`blog-post-container ${transition && transition.status}`}
                 style={transition && transition.style}
             >
                 <h1>Whoops! Something went wrong!</h1>
-            </Wrapper>
+            </div>
         );
     }
 }
