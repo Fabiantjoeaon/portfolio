@@ -166,7 +166,7 @@ componentWillUpdate(nextProps, nextState) {
 <br>
 The result:
 
-<video muted autoplay loop>
+<video muted autoplay loop controls>
   <source src="./knob-animated.mp4" type="video/mp4">
   
   Your browser does not support the video tag.

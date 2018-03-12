@@ -13,7 +13,7 @@ Both my keyboard and my step sequencer make use of octaves so that a specific ra
 However, a proper synthesizer should use of a wide set of notes, consisting of multiple octaves, with flexible controls.
 In this post I will demonstrate how I implemented this in my own web synthesizer.
 
-<video muted autoplay loop>
+<video muted autoplay loop controls>
   <source src="./sequencer.mp4" type="video/mp4">
   
   Your browser does not support the video tag.
@@ -162,7 +162,7 @@ export const getCurrentOctave = (state, previousOctave) => {
 ```
 
 <br>
-<video muted autoplay loop>
+<video muted autoplay loop controls>
   <source src="./octaves-in-sync.mp4" type="video/mp4">
   
   Your browser does not support the video tag.

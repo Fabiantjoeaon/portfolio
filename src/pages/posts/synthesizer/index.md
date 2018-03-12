@@ -17,7 +17,7 @@ tools:
 This is a spare-time project of mine, where I explored the possibilities of visualising synthesizer parameters with WebGL.
 The synthezier itself is build using React and Redux.
 
-<video muted autoplay loop>
+<video muted autoplay loop controls>
   <source src="./synth.mp4" type="video/mp4">
   
   Your browser does not support the video tag.
