@@ -54,16 +54,6 @@ iframe {
 p {
     line-height: 2em;
 }
-
-.comment {
-    color: #909090 !important;
-}
-
-.gatsby-resp-image-wrapper {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    max-width: 100% !important;
-}
 `;
 
 const Container = styled.div`

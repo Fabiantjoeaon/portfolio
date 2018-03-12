@@ -6,6 +6,14 @@ import AnimatedTitle from '../components/styled/AnimatedTitle';
 import Content from '../components/styled/Content';
 
 injectGlobal`
+.gatsby-resp-image-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100% !important;
+}
+.comment {
+    color: #909090 !important;
+}
 tt,
 code {
     background-color: hsla(0, 0%, 0%, 0.04);
