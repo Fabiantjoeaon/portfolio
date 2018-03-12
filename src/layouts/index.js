@@ -9,7 +9,6 @@ import renderScene from './scene';
 import interpolate from '../utils/colorInterpolate';
 import scrollTo from '../utils/scrollTo';
 import { saturateZeroOne, saturatePercentage } from '../utils/saturateValue';
-import '../../node_modules/font-awesome/css/font-awesome.css';
 import 'prism-themes/themes/prism-atom-dark.css';
 
 injectGlobal`
