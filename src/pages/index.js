@@ -5,6 +5,7 @@ import Link, { navigateTo, withPrefix } from 'gatsby-link';
 
 import AnimatedTitle from '../components/styled/AnimatedTitle';
 import Content from '../components/styled/Content';
+import resume from '../resume.pdf';
 
 const IndexContainer = styled.div``;
 
@@ -222,7 +223,7 @@ class IndexPage extends Component {
                             passion in trying to find ways to combine audio with
                             code, which is in most cases WebGL. You can download
                             my resume&nbsp;
-                            <a href={withPrefix('/static/resume.pdf')} download>
+                            <a href={resume} download>
                                 here.
                             </a>
                             <br />
