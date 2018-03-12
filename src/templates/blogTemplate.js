@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import WebFont from 'webfontloader';
 
@@ -118,59 +118,64 @@ const Tools = ({ tools }) => (
     <StyledTools>{tools.map(t => <span key={t}>{t}</span>)}</StyledTools>
 );
 
-WebFont.load({
-    google: {
-      families: ['Asul', 'sans-serif']
+export default class Template extends Component {
+    componentDidMount() {
+        WebFont.load({
+            google: {
+              families: ['Asul', 'sans-serif']
+            }
+          });
     }
-  });
+    render() {
+        const { data, transition } = this.props;
 
-export default function Template({ data, transition, ...props }) {
-    if (data) {
-        const { markdownRemark } = data;
-        const { frontmatter, html } = markdownRemark;
+        if (data) {
+            const { markdownRemark } = data;
+            const { frontmatter, html } = markdownRemark;
+
+            return (
+                <Wrapper
+                    className={`blog-post-container ${transition &&
+                        transition.status}`}
+                    style={transition && transition.style}
+                >
+                    <div className="blog-post">
+                        <TitleWrapper>
+                            <AnimatedTitle
+                                className={transition && transition.status}
+                            >
+                                {frontmatter.title}
+                            </AnimatedTitle>
+                        </TitleWrapper>
+                        <AnimatedContent
+                            className={`blog-post-content ${transition &&
+                                transition.status}`}
+                        >
+                            {frontmatter.tools && (
+                                <Tools tools={frontmatter.tools} />
+                            )}
+                            <div dangerouslySetInnerHTML={{ __html: html }} />
+                            <BlogFooter>
+                                <p>
+                                    Thanks for reading! HMU if you have anything to
+                                    talk about!
+                                </p>
+                            </BlogFooter>
+                        </AnimatedContent>
+                    </div>
+                </Wrapper>
+            );
+        }
 
         return (
             <Wrapper
-                className={`blog-post-container ${transition &&
-                    transition.status}`}
+                className={`blog-post-container ${transition && transition.status}`}
                 style={transition && transition.style}
             >
-                <div className="blog-post">
-                    <TitleWrapper>
-                        <AnimatedTitle
-                            className={transition && transition.status}
-                        >
-                            {frontmatter.title}
-                        </AnimatedTitle>
-                    </TitleWrapper>
-                    <AnimatedContent
-                        className={`blog-post-content ${transition &&
-                            transition.status}`}
-                    >
-                        {frontmatter.tools && (
-                            <Tools tools={frontmatter.tools} />
-                        )}
-                        <div dangerouslySetInnerHTML={{ __html: html }} />
-                        <BlogFooter>
-                            <p>
-                                Thanks for reading! HMU if you have anything to
-                                talk about!
-                            </p>
-                        </BlogFooter>
-                    </AnimatedContent>
-                </div>
+                <h1>Whoops! Something went wrong!</h1>
             </Wrapper>
         );
     }
-
-    return (
-        <Wrapper
-            className={`blog-post-container ${transition && transition.status}`}
-            style={transition && transition.style}
-        >
-            <h1>Whoops! Something went wrong!</h1>
-        </Wrapper>
-    );
 }
 
 export const pageQuery = graphql`

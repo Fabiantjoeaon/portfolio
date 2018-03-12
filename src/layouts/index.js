@@ -184,12 +184,6 @@ const ContentInner = styled.div`
     // }
 `;
 
-WebFont.load({
-  google: {
-    families: ['Chivo\:100,100i,400,400i,700i', 'sans-serif']
-  }
-});
-
 class TemplateWrapper extends Component {
     state = {
         isFirstVisit: false,
@@ -202,7 +196,14 @@ class TemplateWrapper extends Component {
     }
 
     componentDidMount() {
+        WebFont.load({
+            google: {
+              families: ['Chivo\:100,100i,400,400i,700i', 'sans-serif']
+            }
+        });
+
         renderScene(findDOMNode(this.root), window);
+        
         const { clientHeight } = findDOMNode(this.header);
         const sceneColorMap = interpolate(['#fff', '#a5abff']);
         const planeColorMap = interpolate(['#a5abff', '#fff']);
