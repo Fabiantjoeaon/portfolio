@@ -274,7 +274,9 @@ class TemplateWrapper extends Component {
                     title="Fabian Tjoe-A-On's Portfolio"
                     meta={[
                         { name: 'description', content: 'Sample' },
-                        { name: 'keywords', content: 'sample, something' }
+                        { name: 'keywords', content: 'sample, something' },
+                        { themeColor: '#a5abff' },
+                        { 'theme-color': '#a5abff' }
                     ]}
                 />
                 <Scene ref={root => (this.root = root)} />
