@@ -218,11 +218,11 @@ class IndexPage extends Component {
                         <p>
                             I'm Fabian Tjoe-A-On, a 22 year old full-stack(web)
                             developer from Rotterdam, and I mostly do
-                            Javascript. While being a sucker for well-designed,
-                            functional interfaces and web-apps, I also find my
-                            passion in trying to find ways to combine audio with
-                            code, which is in most cases WebGL. You can download
-                            my resume&nbsp;
+                            Javascript. While I adore well-designed, functional
+                            interfaces and web-apps, I also find my passion in
+                            trying to find ways to combine audio with code,
+                            which is in most cases WebGL. You can download my
+                            resume&nbsp;
                             <a href={resume} download>
                                 here.
                             </a>
@@ -233,9 +233,10 @@ class IndexPage extends Component {
                             you're into electronic music, check out my
                             recordings :) <br />
                             <br />
-                            I am currently looking for an internship. If you're
-                            interested in any of my work, or just want to chat,
-                            holla!{' '}
+                            I am currently looking for an internship (preferably
+                            focussed on interactive graphics on the web). If
+                            you're interested in any of my work, or just want to
+                            chat, holla!{' '}
                         </p>{' '}
                     </IndexContent>
                     <IndexTitleWrapper>
@@ -330,9 +331,19 @@ class IndexPage extends Component {
                         <StyledProjectTitle>Recordings</StyledProjectTitle>{' '}
                         <br />
                         <br />
-                            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F" frameBorder="0" ></iframe>
+                        <iframe
+                            width="100%"
+                            height="60"
+                            src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F"
+                            frameBorder="0"
+                        />
                         <br />
-                            <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Flate_night_session%2F" frameBorder="0" ></iframe>
+                        <iframe
+                            width="100%"
+                            height="60"
+                            src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Flate_night_session%2F"
+                            frameBorder="0"
+                        />
                         <br />
                     </StyledProjectWrapper>
                 </Content>{' '}
