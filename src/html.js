@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 let stylesStr;
 if (process.env.NODE_ENV === `production`) {
@@ -8,7 +8,6 @@ if (process.env.NODE_ENV === `production`) {
         console.log(e);
     }
 }
-
 module.exports = class HTML extends React.Component {
     render() {
         let css;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Transition from 'react-transition-group/Transition';
-import styled from 'styled-components';
-import Link, { navigateTo, withPrefix } from 'gatsby-link';
+import React, { Component } from "react";
+import Transition from "react-transition-group/Transition";
+import styled from "styled-components";
+import Link, { navigateTo, withPrefix } from "gatsby-link";
 
-import AnimatedTitle from '../components/styled/AnimatedTitle';
-import Content from '../components/styled/Content';
-import resume from '../resume.pdf';
+import AnimatedTitle from "../components/styled/AnimatedTitle";
+import Content from "../components/styled/Content";
+import resume from "../resume.pdf";
 
 const IndexContainer = styled.div``;
 
@@ -62,7 +62,7 @@ const IndexTitle = styled(AnimatedTitle)`
 
 const StyledProjectTitle = styled.span`
     text-decoration: none;
-    font-family: 'Chivo', sans-serif;
+    font-family: "Chivo", sans-serif;
     font-size: 3.5em;
     font-weight: 100;
     display: inline-block;
@@ -80,7 +80,7 @@ const StyledProjectTitle = styled.span`
     will-change: transform;
 
     &::before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         bottom: 0;
@@ -200,6 +200,13 @@ class IndexPage extends Component {
         this.setState({ activeId });
     };
 
+    calculateAge = () => {
+        const birthday = new Date("01-04-1995");
+        var ageDifMs = Date.now() - birthday.getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    };
+
     render() {
         const { transition } = this.props;
         const { setActiveId } = this;
@@ -211,18 +218,18 @@ class IndexPage extends Component {
                 <IndexTitleWrapper>
                     <IndexTitle className={transition && transition.status}>
                         Sup?
-                    </IndexTitle>{' '}
+                    </IndexTitle>{" "}
                 </IndexTitleWrapper>
                 <Content className={transition && transition.status}>
                     <IndexContent>
                         <p>
-                            I'm Fabian Tjoe-A-On, a 22 year old full-stack(web)
-                            developer from Rotterdam, and I mostly do
-                            Javascript. While I adore well-designed, functional
-                            interfaces and web-apps, I also find my passion in
-                            trying to find ways to combine audio with code,
-                            which is in most cases WebGL. You can download my
-                            resume&nbsp;
+                            I'm Fabian Tjoe-A-On, a {this.calculateAge()} year
+                            old full-stack(web) developer from Rotterdam, and I
+                            mostly do Javascript. While I adore well-designed,
+                            functional interfaces and web-apps, I also find my
+                            passion in trying to find ways to combine audio with
+                            code, which is in most cases WebGL. You can download
+                            my resume&nbsp;
                             <a href={resume} download>
                                 here.
                             </a>
@@ -232,16 +239,49 @@ class IndexPage extends Component {
                             and blog posts. Oh and I love spinning vinyl, if
                             you're into electronic music, check out my
                             recordings :) <br />
-                            <br />
-                            I am currently looking for an internship (preferably
-                            focussed on interactive graphics on the web). If
-                            you're interested in any of my work, or just want to
-                            chat, holla!{' '}
-                        </p>{' '}
+                        </p>{" "}
                     </IndexContent>
                     <IndexTitleWrapper>
                         <IndexTitle>My output</IndexTitle>
                     </IndexTitleWrapper>
+                    <ProjectWrapper
+                        title="WebGL Experiments"
+                        activeId={this.state.activeId}
+                        id={3}
+                        setActiveId={setActiveId}
+                    >
+                        <a
+                            style={{
+                                display: "block",
+                                textDecoration: "none"
+                            }}
+                            target="_blank"
+                            href="https://fabiantjoeaon.github.io/grid-vertex-displacement"
+                        >
+                            Vertex displacement on a grid (with regl){" "}
+                        </a>
+                        <a
+                            style={{
+                                display: "block",
+                                textDecoration: "none"
+                            }}
+                            target="_blank"
+                            href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
+                        >
+                            Animated perlin noise shader{" "}
+                        </a>
+                        <a
+                            style={{
+                                display: "block",
+                                textDecoration: "none"
+                            }}
+                            target="_blank"
+                            href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"
+                        >
+                            Gooey effect with gravitational attraction using
+                            marching cubes{" "}
+                        </a>{" "}
+                    </ProjectWrapper>
                     <ProjectWrapper
                         activeId={this.state.activeId}
                         id={1}
@@ -251,7 +291,7 @@ class IndexPage extends Component {
                         <span
                             onClick={e => {
                                 e.preventDefault();
-                                navigateTo('/projects/web-synthesizer');
+                                navigateTo("/projects/web-synthesizer");
                             }}
                         >
                             To project &rarr;
@@ -260,22 +300,22 @@ class IndexPage extends Component {
                             onClick={e => {
                                 e.preventDefault();
                                 navigateTo(
-                                    '/blog/building-my-web-synth--rendering-knobs'
+                                    "/blog/building-my-web-synth--rendering-knobs"
                                 );
                             }}
                         >
                             Rendering responsive synthesizer knobs using React
-                            and D3{' '}
-                        </span>{' '}
+                            and D3{" "}
+                        </span>{" "}
                         <span
                             onClick={e => {
                                 e.preventDefault();
                                 navigateTo(
-                                    '/blog/building-my-web-synth--handling-octaves'
+                                    "/blog/building-my-web-synth--handling-octaves"
                                 );
                             }}
                         >
-                            Handling octaves with Redux{' '}
+                            Handling octaves with Redux{" "}
                         </span>
                     </ProjectWrapper>
                     <ProjectWrapper
@@ -290,34 +330,6 @@ class IndexPage extends Component {
                     </ProjectWrapper>
 
                     <ProjectWrapper
-                        title="WebGL Experiments"
-                        activeId={this.state.activeId}
-                        id={3}
-                        setActiveId={setActiveId}
-                    >
-                        <a
-                            style={{
-                                display: 'block',
-                                textDecoration: 'none'
-                            }}
-                            target="_blank"
-                            href="https://fabiantjoeaon.github.io/sphere-perlin-vertex"
-                        >
-                            Animated perlin noise shader{' '}
-                        </a>
-                        <a
-                            style={{
-                                display: 'block',
-                                textDecoration: 'none'
-                            }}
-                            target="_blank"
-                            href="https://fabiantjoeaon.github.io/gravitational-attraction-marching-cubes"
-                        >
-                            Gooey effect with gravitational attraction using
-                            marching cubes{' '}
-                        </a>{' '}
-                    </ProjectWrapper>
-                    <ProjectWrapper
                         title="Internship portfolio"
                         activeId={this.state.activeId}
                         id={4}
@@ -328,16 +340,23 @@ class IndexPage extends Component {
                         </StyledLink>
                     </ProjectWrapper>
                     <StyledProjectWrapper>
-                        <StyledProjectTitle>Recordings</StyledProjectTitle>{' '}
+                        <StyledProjectTitle>Recordings</StyledProjectTitle>{" "}
                         <br />
                         <br />
                         <iframe
                             width="100%"
                             height="60"
+                            src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Ffreestyling-from-the-bedroom%2F"
+                            frameborder="0"
+                        />
+                        <br />
+                        {/* <iframe
+                            width="100%"
+                            height="60"
                             src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Ffabian-tjoe-a-on%2Fobscurityelation%2F"
                             frameBorder="0"
                         />
-                        <br />
+                        <br /> */}
                         <iframe
                             width="100%"
                             height="60"
@@ -346,7 +365,7 @@ class IndexPage extends Component {
                         />
                         <br />
                     </StyledProjectWrapper>
-                </Content>{' '}
+                </Content>{" "}
             </IndexContainer>
         );
     }
