@@ -200,11 +200,15 @@ class IndexPage extends Component {
         this.setState({ activeId });
     };
 
-    calculateAge = () => {
-        const birthday = new Date("01-04-1995");
-        var ageDifMs = Date.now() - birthday.getTime();
-        var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    getAge = dateString => {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
     };
 
     render() {
@@ -223,13 +227,13 @@ class IndexPage extends Component {
                 <Content className={transition && transition.status}>
                     <IndexContent>
                         <p>
-                            I'm Fabian Tjoe-A-On, a {this.calculateAge()} year
-                            old full-stack(web) developer from Rotterdam, and I
-                            mostly do Javascript. While I adore well-designed,
-                            functional interfaces and web-apps, I also find my
-                            passion in trying to find ways to combine audio with
-                            code, which is in most cases WebGL. You can download
-                            my resume&nbsp;
+                            I'm Fabian Tjoe-A-On, a {this.getAge("1995/04/01")}{" "}
+                            year old full-stack(web) developer from Rotterdam,
+                            and I mostly do Javascript. While I adore
+                            well-designed, functional interfaces and web-apps, I
+                            also find my passion in trying to find ways to
+                            combine audio with code, which is in most cases
+                            WebGL. You can download my resume&nbsp;
                             <a href={resume} download>
                                 here.
                             </a>
