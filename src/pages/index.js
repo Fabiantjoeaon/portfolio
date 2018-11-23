@@ -262,7 +262,18 @@ class IndexPage extends Component {
                             target="_blank"
                             href="https://fabiantjoeaon.github.io/grid-vertex-displacement"
                         >
-                            Vertex displacement on a grid (with regl){" "}
+                            WebGL image & video manipulation (DESKTOP ONLY!)
+                            (regl){" "}
+                        </a>
+                        <a
+                            style={{
+                                display: "block",
+                                textDecoration: "none"
+                            }}
+                            target="_blank"
+                            href="https://fabiantjoeaon.github.io/grid-vertex-displacement"
+                        >
+                            Vertex displacement on a grid (regl){" "}
                         </a>
                         <a
                             style={{
