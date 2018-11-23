@@ -260,7 +260,7 @@ class IndexPage extends Component {
                                 textDecoration: "none"
                             }}
                             target="_blank"
-                            href="https://fabiantjoeaon.github.io/grid-vertex-displacement"
+                            href="https://fabiantjoeaon.github.io/webgl-image-manipulation"
                         >
                             WebGL image & video manipulation (DESKTOP ONLY!)
                             (regl){" "}
